@@ -1,3 +1,3 @@
-#gaspafiles
+# gaspafiles
 
 My Arch Linux dotfiles!
