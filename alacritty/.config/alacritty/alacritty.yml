@@ -1,10 +1,10 @@
 # Colors (Material Theme)
-background_opacity: 0.75
+background_opacity: 0.9
 colors:
   # Default colors
   primary:
     background: '#263238'
-    foreground: '#eeffff'
+    foreground: '#ffffff'
 
   # Normal colors
   normal:
