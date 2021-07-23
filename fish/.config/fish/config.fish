@@ -1,5 +1,5 @@
 if status is-interactive
-  neofetch
+  cowsay wassup
   alias compile="gcc -ansi -pedantic -Wall -Wextra -Werror"
   alias vim="nvim"
   alias gac="git add . && git commit -m"
