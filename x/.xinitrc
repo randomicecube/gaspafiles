@@ -8,9 +8,9 @@ picom &
 redshift &
 
 # had to hardcode the feh section, god knows why
-feh --bg-fill '/home/gaspa/Downloads/lofi-cafe.jpg'
+feh --bg-fill '/home/gaspa/Downloads/wall.jpg'
 /home/gaspa/.screenlayout/arandr_1920x1080.sh
-feh --bg-fill '/home/gaspa/Downloads/lofi-cafe.jpg'
+feh --bg-fill '/home/gaspa/Downloads/wall.jpg'
 
 setxkbmap -layout pt
 export GTK_THEME=Dracula

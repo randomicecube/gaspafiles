@@ -1,29 +1,33 @@
 # Colors (Material Theme)
-background_opacity: 0.9
+background_opacity: 1.0
 colors:
   # Default colors
   primary:
-    background: '#202734'
-    foreground: '#CBCCC6'
+    background: '#3C4C55'
+    foreground: '#C5D4DD'
+
+  cursor:
+    text: '#212121'
+    cursor: '#C0C5CE'
 
   # Normal colors
   normal:
-    black: '#191E2A'
-    red: '#FF3333'
-    green: '#BAE67E'
-    yellow: '#FFA759'
-    blue: '#73D0FF'
-    magenta: '#FFD580'
-    cyan: '#95E6CB'
-    white: '#C7C7C7'
+    black: '#3C4C55'
+    red: '#DF8C8C'
+    green: '#A8CE93'
+    yellow: '#DADA93'
+    blue: '#83AFE5'
+    magenta: '#9A93E1'
+    cyan: '#7FC1CA'
+    white: '#C5D4DD'
 
   # Bright colors
   bright:
-    black: '#686868'
-    red: '#F27983'
-    green: '#A6CC70'
-    yellow: '#FFCC66'
-    blue: '#5CCFE6'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+    black: '#899BA6'
+    red: '#F2C38F'
+    green: '#A8CE93'
+    yellow: '#DADA93'
+    blue: '#83AFE5'
+    magenta: '#D18EC2'
+    cyan: '#7FC1CA'
+    white: '#E6EEF3'

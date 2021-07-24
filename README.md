@@ -13,4 +13,4 @@ stow NAME # repeat for alacritty, nvim, etc
 
 ## Images
 
-<!-- <img src="./images/gasparch.png" alt="gasparch"> -->
+<img src="./images/gasparch.png" alt="gasparch">
