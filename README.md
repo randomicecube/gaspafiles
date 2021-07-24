@@ -9,3 +9,8 @@ Shamelessly stolen bits and bobs from [Raf](https://github.com/RafDevX/dotfiles)
 git clone https://github.com/randomicecube/gaspafiles.git
 cd gaspafiles
 stow NAME # repeat for alacritty, nvim, etc
+```
+
+## Images
+
+<img src="./images/gasparch.png" alt="gasparch">
