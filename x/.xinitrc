@@ -1,17 +1,18 @@
-setxkbmap -layout pt
-
-xrandr --newmode "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
-xrandr --addmode eDP-1 1600x900_60.00
-xrandr --output eDP-1 --mode 1600x900_60.00
+# 1920x1080 mode for the laptop screen
+xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode eDP-1 1920x1080_60.00
+xrandr --output eDP-1 --mode 1920x1080_60.00
 
 slstatus &
 picom &
 redshift &
-# for some reason i've got to execute fehbg twice, before and after arandr
-~/.fehbg &
-/home/gaspa/.screenlayout/arandr_1600x900.sh
-~/.fehbg &
 
+# had to hardcode the feh section, god knows why
+feh --bg-fill '/home/gaspa/Downloads/lofi-cafe.jpg'
+/home/gaspa/.screenlayout/arandr_1920x1080.sh
+feh --bg-fill '/home/gaspa/Downloads/lofi-cafe.jpg'
+
+setxkbmap -layout pt
 export GTK_THEME=Dracula
 export EDITOR=nvim
 
