@@ -10,7 +10,7 @@ elif [ "$LVL" -le 50 ]; then
 	OUT=""
 elif [ "$LVL" -le 75 ]; then
 	OUT=""
-elif [ "$LVL" -le 97 ]; then
+elif [ "$LVL" -le 90 ]; then
 	OUT=""
 else
 	OUT=""
