@@ -15,17 +15,15 @@ static const char *fonts[]          = {
 					"monospace:size=12"
 				      };
 static const char dmenufont[]       = "MesloLGS NF:size=10";
-static const char col_gray1[]       = "#1E1F29"; /* slstatus stuff + tab bg color */
-static const char col_gray2[]       = "#282A36";
-static const char col_gray3[]       = "#C0C5CE";
-static const char col_gray4[]       = "#D7D7D7";
-static const char col_gray5[]       = "#5A5AA4";
-// static const char col_cyan[]        = "#89CFF0"; /* activity bar color */
-static const char col_cyan[]				= "#FFFFFF";
+static const char col_gray1[]       = "#3c3836";
+static const char col_gray2[]       = "#ebdbb2";
+static const char col_gray3[]       = "#fdf1c7";
+static const char col_gray4[]       = "#282828";
+static const char col_cyan[]        = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_gray5,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 /* tagging */
@@ -67,7 +65,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray5, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *raisevolumecmd[] = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };

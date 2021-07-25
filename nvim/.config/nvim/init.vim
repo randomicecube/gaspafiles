@@ -9,6 +9,10 @@ set wildmenu
 set wildmode=longest:list,full
 set number
 set relativenumber
+set cursorline
+
+syntax enable
+syntax on
 
 "Colorscheme - neovim-gruvbox-material from the AUR
 set background=dark

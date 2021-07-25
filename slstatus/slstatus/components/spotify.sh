@@ -41,7 +41,7 @@ if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
     fi
 
     if [ "$PLAYER" = "spotify" ]; then
-				printf "[Spotify] %s: %s " "$ARTIST" "$TRACK"
+				printf " %s: %s " "$ARTIST" "$TRACK"
 				printf "(%0d:%02d)" $((DURATION%3600/60)) $((DURATION%60))
     else
         printf "%s %s - %s " "$STATUS" "$ARTIST" "$TRACK"
