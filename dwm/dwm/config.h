@@ -2,8 +2,8 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 20;        /* gap pixel between windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 10;        /* gap pixel between windows */
 static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -20,7 +20,8 @@ static const char col_gray2[]       = "#282A36";
 static const char col_gray3[]       = "#C0C5CE";
 static const char col_gray4[]       = "#D7D7D7";
 static const char col_gray5[]       = "#5A5AA4";
-static const char col_cyan[]        = "#89CFF0"; /* activity bar color */
+// static const char col_cyan[]        = "#89CFF0"; /* activity bar color */
+static const char col_cyan[]				= "#FFFFFF";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },

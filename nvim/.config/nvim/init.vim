@@ -15,7 +15,7 @@ set background=dark
 
 if has('termguicolors')
         set termguicolors
-      endif
+     endif
 
 let g:gruvbox_material_background = 'medium'
 
