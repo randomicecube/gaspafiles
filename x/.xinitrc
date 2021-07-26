@@ -6,6 +6,7 @@ xrandr --output eDP-1 --mode 1920x1080_60.00
 slstatus &
 picom &
 redshift &
+dunst &
 
 # had to hardcode the feh section, god knows why
 feh --bg-fill '/home/gaspa/Downloads/wall.png'

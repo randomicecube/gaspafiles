@@ -1,5 +1,6 @@
 # Colors (Material Theme)
 background_opacity: 0.4
+save_to_clipboard: true
 colors:
   # Default colors
   primary:
