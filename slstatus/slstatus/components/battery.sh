@@ -4,9 +4,7 @@
 OUT=''
 LVL=$(cat /sys/class/power_supply/BAT1/capacity)
 
-if [ "$LVL" -le 10 ]; then
-	OUT="⛽"
-elif [ "$LVL" -le 20 ]; then
+if [ "$LVL" -le 20 ]; then
 	OUT=""
 elif [ "$LVL" -le 40 ]; then
 	OUT=""
