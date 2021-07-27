@@ -9,12 +9,10 @@ redshift &
 dunst &
 
 # had to hardcode the feh section, god knows why
-feh --bg-fill '/home/gaspa/Downloads/wall.png'
+feh --bg-fill '/home/gaspa/gaspafiles/images/buildings.png'
 /home/gaspa/.screenlayout/arandr_1920x1080.sh
-feh --bg-fill '/home/gaspa/Downloads/wall.png'
+feh --bg-fill '/home/gaspa/gaspafiles/images/buildings.png'
 
 setxkbmap -layout pt
-export GTK_THEME=Dracula
-export EDITOR=nvim
 
 exec dbus-launch dwm
