@@ -13,4 +13,5 @@ stow NAME # repeat for alacritty, nvim, etc
 
 ## Images
 
-<img src="./images/gasparch.png" alt="gasparch">
+<img src="./images/gasparch_term.png" alt="term">
+<img src="./images/gasparch_htop.png" alt="htop">

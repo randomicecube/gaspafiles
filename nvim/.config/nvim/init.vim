@@ -15,12 +15,15 @@ syntax enable
 syntax on
 
 "Colorscheme - neovim-gruvbox-material from the AUR
+"OR
+"vim-embark-git
 set background=dark
 
 if has('termguicolors')
         set termguicolors
-     endif
+endif
 
-let g:gruvbox_material_background = 'soft'
+"let g:gruvbox_material_background = 'soft'
 
-colorscheme gruvbox-material
+"colorscheme gruvbox-material
+colorscheme embark
