@@ -5,6 +5,7 @@ picom --experimental-backends & # flag is needed for blur to take effect
 slstatus &
 redshift &
 dunst &
+flameshot &
 
 /home/gaspa/.local/bin/utils/setbg
 
@@ -12,3 +13,7 @@ setxkbmap -layout pt
 
 # if dwm exits 0, restart -- this allows hot reloading of config.h
 while type dwm >/dev/null ; do dwm && continue || break ; done
+#
+# exec dbus-launch dwm
+#
+# exec dwm

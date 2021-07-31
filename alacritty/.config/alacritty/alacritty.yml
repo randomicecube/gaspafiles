@@ -1,32 +1,28 @@
 # Colors (Material Theme)
-background_opacity: 0.95
+background_opacity: 1.0
 save_to_clipboard: true
 colors:
-  # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
-    background: '#282828'
-    # soft contrast: background = '#32302f'
-    foreground: '#ebdbb2'
-
-  # Normal colors
+    background: '#0e0d2d'
+    foreground: '#f3ded2'
+  cursor:
+    text:       '#0e0d2d'
+    cursor:     '#f3ded2'
   normal:
-    black: '#282828'
-    red: '#cc241d'
-    green: '#98971a'
-    yellow: '#d79921'
-    blue: '#458588'
-    magenta: '#b16286'
-    cyan: '#689d6a'
-    white: '#a89984'
-
-  # Bright colors
+    black:      '#0e0d2d'
+    red:        '#B06AA5'
+    green:      '#E1789C'
+    yellow:     '#CF72A2'
+    blue:       '#5091CB'
+    magenta:    '#F290A4'
+    cyan:       '#F6A1A8'
+    white:      '#f3ded2'
   bright:
-    black: '#928374'
-    red: '#fb4934'
-    green: '#b8bb26'
-    yellow: '#fabd2f'
-    blue: '#83a598'
-    magenta: '#d3869b'
-    cyan: '#8ec07c'
-    white: '#ebdbb2'
+    black:      '#aa9b93'
+    red:        '#B06AA5'
+    green:      '#E1789C'
+    yellow:     '#CF72A2'
+    blue:       '#5091CB'
+    magenta:    '#F290A4'
+    cyan:       '#F6A1A8'
+    white:      '#f3ded2'

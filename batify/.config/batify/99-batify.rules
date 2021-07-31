@@ -1,14 +1,14 @@
 ACTION=="change", KERNEL=="BAT1", \
 SUBSYSTEM=="power_supply", \
 ATTR{status}=="Discharging", \
-ATTR{capacity}=="[0-9]", \
+ATTR{capacity}=="9", \
 IMPORT{program}="/usr/bin/xpub", \
 RUN+="/bin/su $env{XUSER} -c 'notify-send -u critical -i battery-empty \"Battery status\" \"Battery level is CRITICAL at $attr{capacity}%\"'"
 
 ACTION=="change", KERNEL=="BAT1", \
 SUBSYSTEM=="power_supply", \
 ATTR{status}=="Discharging", \
-ATTR{capacity}=="1[0-9]", \
+ATTR{capacity}=="19", \
 IMPORT{program}="/usr/bin/xpub", \
 RUN+="/bin/su $env{XUSER} -c 'notify-send -u normal -i battery-caution \"Battery status\" \"Battery is getting low at $attr{capacity}%\"'"
 

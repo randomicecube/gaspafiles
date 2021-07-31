@@ -67,11 +67,11 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ username,         " %s@",                 NULL },
 	{ hostname,         "%s ",                  NULL}, 
-	{ run_command,      "| %s ",                "~/slstatus/components/spotify.sh" },
 	{ cpu_perc,         "| CPU: %s%% ",         NULL },
 	{ ram_perc,         "| RAM: %s%% ",         NULL },
 	{ disk_used,        "| %s/",                "/" },
 	{ disk_total,       "%s ",                  "/" },
+	{ run_command,      "| %s ",                "~/slstatus/components/spotify.sh" },
 	{ datetime,         "| %s",                " %a %-d %b %I:%M " },
   { run_command,		  "| %s ",		            "~/slstatus/components/battery.sh"	},
   { run_command,		  "| %s ",		            "~/slstatus/components/volume.sh"	}
