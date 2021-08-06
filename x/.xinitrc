@@ -7,10 +7,7 @@ redshift &
 dunst &
 flameshot &
 
-# currently not using it, although it's a nice script
-# /home/gaspa/.local/bin/utils/setbg
-
-/home/gaspa/.fehbg
+/home/gaspa/.local/bin/utils/setbg
 
 setxkbmap -layout pt
 
