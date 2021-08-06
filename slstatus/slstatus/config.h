@@ -73,6 +73,6 @@ static const struct arg args[] = {
 	{ disk_total,       "%s ",                  "/" },
 	{ run_command,      "| %s ",                "~/slstatus/components/spotify.sh" },
 	{ datetime,         "| %s",                " %a %-d %b %I:%M " },
-  { run_command,		  "| %s ",		            "~/slstatus/components/battery.sh"	},
-  { run_command,		  "| %s ",		            "~/slstatus/components/volume.sh"	}
+	{ run_command,		  "| %s ",		            "~/slstatus/components/battery.sh"	},
+	{ run_command,		  "| %s ",		            "~/slstatus/components/volume.sh"	}
 };

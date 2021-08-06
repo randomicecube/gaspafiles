@@ -8,12 +8,12 @@ static const unsigned int snap      = 10;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {
-					"Font Awesome 5 Free Solid:size=12",
-          "Fira Code:size=10",
-					"JoyPixels:size=10:antialias=true:autohint=true",
-					"Noto Fonts Emoji:size=10:antialias=true:autohint=true", 
-					"monospace:size=12"
-				      };
+	"Font Awesome 5 Free Solid:size=12",
+	"Fira Code:size=10",
+	"JoyPixels:size=10:antialias=true:autohint=true",
+	"Noto Fonts Emoji:size=10:antialias=true:autohint=true", 
+	"monospace:size=12"
+};
 static const char dmenufont[]       = "MesloLGS NF:size=10";
 static const char col_gray1[]       = "#3c3836";
 static const char col_gray2[]       = "#ebdbb2";
@@ -36,8 +36,10 @@ static const Rule rules[] = {
 	 */
 /* class             instance    title    tags mask     isfloating
        CenterThisWindow?     monitor */
-{ "Alacritty",              NULL,       NULL,    0,            0,    1,  -1 },
-{ "Firefox",         NULL,       NULL,    1 << 8,       0,	  1,  -1 },
+{ "Brave-Browser",         NULL,       NULL,    1 << 1,       0,	  0,  -1 },
+{ "Discord",         NULL,       NULL,    1 << 1,       0,	  0,  -1 },
+{ "code",         NULL,       NULL,    1 << 4,       0,	  0,  -1 },
+{ "Alacritty",              NULL,       NULL,    1 << 5,            0,    1,  -1 },
 };
 
 /* layout(s) */

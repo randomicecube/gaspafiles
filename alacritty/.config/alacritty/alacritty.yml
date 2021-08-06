@@ -1,6 +1,13 @@
 # Colors (Material Theme)
 background_opacity: 1.0
 save_to_clipboard: true
+
+font:
+  normal:
+    family: Meslo LGS 
+    style: Regular
+
+
 colors:
   primary:
     background: '#0e0d2d'
