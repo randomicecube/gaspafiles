@@ -71,6 +71,7 @@ static const struct arg args[] = {
 	{ ram_perc,         "| RAM: %s%% ",         NULL },
 	{ disk_used,        "| %s/",                "/" },
 	{ disk_total,       "%s ",                  "/" },
+	{ wifi_essid,       "|  %s ",                "wlp3s0" },
 	{ run_command,      "| %s ",                "~/slstatus/components/spotify.sh" },
 	{ datetime,         "| %s",                " %a %-d %b %I:%M " },
 	{ run_command,		  "| %s ",		            "~/slstatus/components/battery.sh"	},

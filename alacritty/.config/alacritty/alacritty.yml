@@ -6,7 +6,8 @@ font:
   normal:
     family: Meslo LGS 
     style: Regular
-
+  
+  size: 9.0
 
 colors:
   primary:
