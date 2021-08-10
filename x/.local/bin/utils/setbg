@@ -12,8 +12,8 @@ cd "$(dirname "$0")"
 
 seconds="$(date -d "1970-01-01 UTC $(date +%T)" +%s)"
 
-wallpaper_path="morning.png"
+wallpaper_path="sakura.gif"
 
-[[ "seconds" -gt "43200" ]] && wallpaper_path="noon.jpg" # Changes at noon
+[[ "seconds" -gt "43200" ]] && wallpaper_path="morning.png" # Changes at noon
 
 feh --bg-fill ./wallpapers/$wallpaper_path
