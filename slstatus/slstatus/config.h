@@ -65,13 +65,13 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ username,         " %s@",                 NULL },
-	{ hostname,         "%s ",                  NULL}, 
-	{ cpu_perc,         "| CPU: %s%% ",         NULL },
-	{ ram_perc,         "| RAM: %s%% ",         NULL },
-	{ disk_used,        "| %s/",                "/" },
-	{ disk_total,       "%s ",                  "/" },
-	{ wifi_essid,       "|  %s ",                "wlp3s0" },
+	// { username,         " %s@",                 NULL },
+	// { hostname,         "%s ",                  NULL}, 
+	// { cpu_perc,         "| CPU: %s%% ",         NULL },
+	// { ram_perc,         "| RAM: %s%% ",         NULL },
+	// { disk_used,        "| %s/",                "/" },
+	// { disk_total,       "%s ",                  "/" },
+	{ wifi_essid,       " %s ",                "wlp3s0" },
 	{ run_command,      "| %s ",                "~/slstatus/components/spotify.sh" },
 	{ datetime,         "| %s",                " %a %-d %b %I:%M " },
 	{ run_command,		  "| %s ",		            "~/slstatus/components/battery.sh"	},
