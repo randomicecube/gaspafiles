@@ -20,13 +20,11 @@ OUT="$OUT $LVL%"
 
 STATE=$(cat /sys/class/power_supply/BAT1/status)
 if [ $STATE = "Charging" ]; then
-  OUT="$OUT  " # charging
+  OUT="$OUT " # charging
 elif [ $STATE = "Discharging" ]; then
-	OUT="$OUT  " # discharging
+	OUT="$OUT " # discharging
 elif [ $STATE = "Idle" ]; then
-  OUT="$OUT  " # idle
-else
-	OUT="$OUT  " # unknown
+  OUT="$OUT " # idle
 fi
 
 echo $OUT
