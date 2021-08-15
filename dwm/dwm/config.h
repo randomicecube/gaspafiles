@@ -34,12 +34,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-/* class             instance    title    tags mask     isfloating
-       CenterThisWindow?     monitor */
-{ "Brave-Browser",         NULL,       NULL,    1 << 1,       0,	  0,  -1 },
-{ "Discord",         NULL,       NULL,    1 << 1,       0,	  0,  -1 },
-{ "code",         NULL,       NULL,    1 << 4,       0,	  0,  -1 },
-{ "Alacritty",              NULL,       NULL,    1 << 5,            0,    1,  -1 },
+/* class              instance    title    			tags mask     isfloating      CenterThisWindow?     monitor */
+	{ "Gimp",     			NULL,       NULL,       	0,            1,            	0,										-1 },
+	{ "Firefox",  			NULL,       NULL,       	1 << 8,       0,           		0,										-1 },
 };
 
 /* layout(s) */

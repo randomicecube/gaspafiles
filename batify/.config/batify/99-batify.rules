@@ -12,6 +12,13 @@ ATTR{capacity}=="19", \
 IMPORT{program}="/usr/bin/xpub", \
 RUN+="/bin/su $env{XUSER} -c 'notify-send -u normal -i battery-caution \"Battery status\" \"Battery is getting low at $attr{capacity}%\"'"
 
+ACTION=="change", KERNEL=="BAT1", \
+SUBSYSTEM=="power_supply", \
+ATTR{status}=="Charging", \
+ATTR{capacity}=="100", \
+IMPORT{program}="/usr/bin/xpub", \
+RUN+="/bin/su $env{XUSER} -c 'notify-send -u normal -i battery-caution \"Battery status\" \"Battery is full\"'"
+
 SUBSYSTEM=="power_supply", ACTION=="change", \
 ENV{POWER_SUPPLY_ONLINE}=="0", ENV{POWER}="off", \
 OPTIONS+="last_rule", \

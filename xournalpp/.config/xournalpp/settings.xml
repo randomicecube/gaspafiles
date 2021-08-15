@@ -9,6 +9,8 @@
   <property name="lastSavePath" value="/home/gaspa/Documents"/>
   <property name="lastOpenPath" value="/home/gaspa/tecas/lp"/>
   <property name="lastImagePath" value=""/>
+  <property name="edgePanSpeed" value="20.00000000"/>
+  <property name="edgePanMaxMult" value="5.00000000"/>
   <property name="zoomStep" value="10.00000000"/>
   <property name="zoomStepScroll" value="2.00000000"/>
   <property name="displayDpi" value="72"/>
@@ -204,7 +206,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff8000"/>
+      <attribute name="color" type="hex" value="00c0ff"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
