@@ -12,7 +12,7 @@ if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
     TRACK="$(playerctl --player=spotify metadata title)"
     POSITION=$(playerctl position | sed 's/..\{6\}$//')
     DURATION=$(playerctl metadata mpris:length | sed 's/.\{6\}$//')
-    STATUS=$(playerctl status)
+    STATUS=$(playerctl --player=spotify status)
     SHUFFLE=$(playerctl shuffle)
 
     if [ "$IDENTIFIER" = "unicode" ]; then
