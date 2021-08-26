@@ -59,7 +59,7 @@
   <property name="addVerticalSpaceAmount" value="150"/>
   <property name="drawDirModsEnabled" value="false"/>
   <property name="drawDirModsRadius" value="50"/>
-  <property name="snapRotation" value="true"/>
+  <property name="snapRotation" value="false"/>
   <property name="snapRotationTolerance" value="0.20000000"/>
   <property name="snapGrid" value="true"/>
   <property name="snapGridTolerance" value="0.25000000"/>
@@ -206,11 +206,11 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffffff"/>
+      <attribute name="color" type="hex" value="ff00ff"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="MEDIUM"/>
+      <attribute name="size" type="string" value="BIG"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
     <data name="playObject">
