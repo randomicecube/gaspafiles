@@ -7,7 +7,7 @@ elif ps -C spotifyd > /dev/null; then
 fi
 
 if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
-    IDENTIFIER="unicode" #hardcoded cuz cba
+    # IDENTIFIER="unicode" #hardcoded cuz cba
 		ARTIST="$(playerctl --player=spotify metadata artist)"
     TRACK="$(playerctl --player=spotify metadata title)"
     POSITION=$(playerctl position | sed 's/..\{6\}$//')
@@ -29,20 +29,20 @@ if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
         #fi
     else
         if [ "$STATUS" = "Playing" ]; then
-            STATUS="PLA"
+            STATUS="playing rn: "
         else
-            STATUS="PAU"
+            STATUS="paused: "
         fi
 
-        if [ "$SHUFFLE" = "On" ]; then
-            SHUFFLE=" S"
-        else
-            SHUFFLE=""
-        fi
+        #if [ "$SHUFFLE" = "On" ]; then
+        #    SHUFFLE=" S"
+        #else
+        #    SHUFFLE=""
+        #fi
     fi
 
     if [ "$PLAYER" = "spotify" ]; then
-				printf "%s: %s (%s)" "$ARTIST" "$TRACK" "$STATUS"
+				printf "%s%s - %s" "$STATUS" "$ARTIST" "$TRACK"
 				# printf "(%0d:%02d)" $((DURATION%3600/60)) $((DURATION%60))
     else
         printf "%s %s - %s " "$STATUS" "$ARTIST" "$TRACK"

@@ -9,11 +9,11 @@ flameshot &
 
 /home/gaspa/.local/bin/utils/setbg
 
-setxkbmap -layout pt
+setxkbmap pt
 
 # if dwm exits 0, restart -- this allows hot reloading of config.h
-while type dwm >/dev/null ; do dwm && continue || break ; done
+# while type dwm >/dev/null ; do dwm && continue || break ; done
 #
 # exec dbus-launch dwm
 #
-# exec dwm
+exec dwm
