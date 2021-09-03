@@ -42,10 +42,9 @@ if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
     fi
 
     if [ "$PLAYER" = "spotify" ]; then
-				MESSAGE="$STATUS$ARTIST - $TRACK"
-				MESSAGE=$(tr '[:upper:]' '[:lower:]' <<<"$MESSAGE")
-				printf "$MESSAGE"
-				#printf "%s%s - %s" "$STATUS" "$ARTIST" "$TRACK"
+        MESSAGE=$(tr '[:upper:]' '[:lower:]' <<< "$STATUS$ARTIST - $TRACK")
+        printf "$MESSAGE"
+        #printf "%s%s - %s" "$STATUS" "$ARTIST" "$TRACK"
     else
         printf "%s %s - %s " "$STATUS" "$ARTIST" "$TRACK"
         printf "%0d:%02d/" $((POSITION%3600/60)) $((POSITION%60))
