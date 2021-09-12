@@ -4,33 +4,37 @@ save_to_clipboard: true
 
 font:
   normal:
-    family: Meslo LGS 
+    family: Meslo LGS
     style: Regular
-  
+
   size: 9.0
 
 colors:
+  # Default colors
   primary:
-    background: '#0e0d2d'
-    foreground: '#f3ded2'
-  cursor:
-    text:       '#0e0d2d'
-    cursor:     '#f3ded2'
+    background: '#282c34'
+    foreground: '#abb2bf'
+
+  # Normal colors
   normal:
-    black:      '#0e0d2d'
-    red:        '#B06AA5'
-    green:      '#E1789C'
-    yellow:     '#CF72A2'
-    blue:       '#5091CB'
-    magenta:    '#F290A4'
-    cyan:       '#F6A1A8'
-    white:      '#f3ded2'
+    # NOTE: Use '#131613' for the `black` color if you'd like to see
+    # black text on the background.
+    black: '#282c34'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#abb2bf'
+
+  # Bright colors
   bright:
-    black:      '#aa9b93'
-    red:        '#B06AA5'
-    green:      '#E1789C'
-    yellow:     '#CF72A2'
-    blue:       '#5091CB'
-    magenta:    '#F290A4'
-    cyan:       '#F6A1A8'
-    white:      '#f3ded2'
+    black: '#5c6370'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#ffffff'

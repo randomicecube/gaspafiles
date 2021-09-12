@@ -8,5 +8,6 @@ if status is-interactive
   alias gac="git add . && git commit -m"
   alias gm="git checkout master"
   alias gp="git push"
-	neo
+	nerdfetch
+	echo ""
 end

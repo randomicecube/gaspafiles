@@ -2,8 +2,8 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gap pixel between windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 8;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -15,11 +15,12 @@ static const char *fonts[]          = {
 	"monospace:size=12"
 };
 static const char dmenufont[]       = "MesloLGS NF:size=10";
-static const char col_gray1[]       = "#3c3836";
-static const char col_gray2[]       = "#ebdbb2";
-static const char col_gray3[]       = "#fdf1c7";
-static const char col_gray4[]       = "#282828";
-static const char col_cyan[]        = "#b19cd9";
+static const char col_gray1[]       = "#282a36";
+static const char col_gray2[]       = "#282a36";
+static const char col_gray3[]       = "#96b5b4";
+static const char col_gray4[]       = "#d7d7d7";
+static const char col_gray5[]       = "#32302f";
+static const char col_cyan[]        = "#282a36";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -37,13 +38,15 @@ static const Rule rules[] = {
 /* class              instance    title    			tags mask     isfloating      CenterThisWindow?     monitor */
 	{ "Gimp",     			NULL,       NULL,       	0,            1,            	0,										-1 },
 	{ "Firefox",  			NULL,       NULL,       	1 << 8,       0,           		0,										-1 },
-	{ "Alacritty",      NULL,       NULL,         0,            0,              1,                    -1 },
+	/* { "Alacritty",      NULL,       NULL,         1 << 4,       0,              0,                    -1 },
+	{ "discord",        NULL,       NULL,         1 << 1,       0,              0,                    -1 },
+	{ "Spotify",        NULL,       NULL,         1 << 2,       0,              0,                    -1 }, */
 };
 
 /* layout(s) */
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */

@@ -9,8 +9,6 @@
   <property name="lastSavePath" value="/home/gaspa/Documents"/>
   <property name="lastOpenPath" value="/home/gaspa/tecas/lp"/>
   <property name="lastImagePath" value=""/>
-  <property name="edgePanSpeed" value="20.00000000"/>
-  <property name="edgePanMaxMult" value="5.00000000"/>
   <property name="zoomStep" value="10.00000000"/>
   <property name="zoomStepScroll" value="2.00000000"/>
   <property name="displayDpi" value="72"/>
@@ -77,7 +75,7 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=dotted&#10;backgroundColor=#ff241f31&#10;"/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundColor=#ff3d3846&#10;"/>
   <property name="sizeUnit" value=""/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
@@ -169,7 +167,18 @@
       <attribute name="deviceSource" type="int" value="1"/>
     </data>
   </data>
-  <data name="lastUsedPageBgColor"/>
+  <data name="lastUsedPageBgColor">
+    <attribute name="color00" type="hex" value="fffafaf9"/>
+    <attribute name="color01" type="hex" value="ffffffff"/>
+    <attribute name="color02" type="hex" value="ffffffff"/>
+    <attribute name="color03" type="hex" value="ffffffff"/>
+    <attribute name="color04" type="hex" value="ffffffff"/>
+    <attribute name="color05" type="hex" value="ffffffff"/>
+    <attribute name="color06" type="hex" value="ffffffff"/>
+    <attribute name="color07" type="hex" value="ffffffff"/>
+    <attribute name="color08" type="hex" value="ffffffff"/>
+    <attribute name="count" type="int" value="9"/>
+  </data>
   <data name="tools">
     <attribute name="current" type="string" value="pen"/>
     <data name="drawArrow">
@@ -229,7 +238,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="text">
-      <attribute name="color" type="hex" value="ffff00"/>
+      <attribute name="color" type="hex" value="ff0000"/>
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="verticalSpace">
