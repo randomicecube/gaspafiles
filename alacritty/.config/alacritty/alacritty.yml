@@ -2,6 +2,11 @@
 background_opacity: 1.0
 save_to_clipboard: true
 
+window:
+  padding:
+    x: 5
+    y: 5
+
 font:
   normal:
     family: Meslo LGS
