@@ -15,7 +15,6 @@ bluez-utils
 brave-bin
 brightnessctl
 chromium
-cowsay
 cronie
 discord
 dmenu
