@@ -7,7 +7,8 @@ redshift &
 dunst &
 flameshot &
 
-/home/gaspa/.local/bin/utils/setbg
+#/home/gaspa/.local/bin/utils/setbg
+feh --bg-fill ~/Pictures/annapurna-mountains.jpg &
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
