@@ -1,5 +1,11 @@
 "Misc
+
+source $HOME/.config/nvim/vim-plug/plugins.vim
+
 set tabstop=2
+set showmatch
+set ignorecase
+set cc=80
 set shiftwidth=0
 set autoindent
 set hidden
@@ -14,16 +20,20 @@ set cursorline
 syntax enable
 syntax on
 
-"Colorscheme - neovim-gruvbox-material from the AUR
-"OR
-"vim-embark-git
 set background=dark
 
 if has('termguicolors')
-        set termguicolors
+	set termguicolors
 endif
 
-"let g:gruvbox_material_background = 'soft'
-
-"colorscheme gruvbox-material
 colorscheme embark
+
+set splitright
+set splitbelow
+
+augroup nerdtree_open
+    autocmd!
+    autocmd VimEnter * NERDTree | wincmd p
+augroup END
+
+let g:python3_host_prog = "/usr/lib/python3.9"
