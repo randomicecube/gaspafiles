@@ -1,0 +1,262 @@
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #282a36
+background-alt = #44475a
+;foreground = ${xrdb:color7:#222}
+foreground = #f8f8f2
+foreground-alt = #6272a4
+primary = #bd93f9
+secondary = #ff79c6
+alert = #ff5555
+
+[bar/i3]
+wm-restack = i3
+enable-ipc = true
+monitor = ${env:MONITOR:DisplayPort-0}
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 1.5%
+radius = 8.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 0
+border-color = ##bd93f9
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Hasklug Nerd Font:size=10;1
+
+modules-left = i3
+modules-center = spotify
+modules-right = memory cpu pulseaudio date powermenu
+tray-position = right
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/i3_m2]
+wm-restack = i3
+enable-ipc = true
+monitor = ${env:MONITOR:HDMI-A-0}
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 1.5%
+radius = 8.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 0
+border-color = ##bd93f9
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Hasklug Nerd Font:size=10
+
+modules-left = i3
+modules-center = spotify
+modules-right = memory cpu pulseaudio date powermenu
+tray-position = right
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+
+[module/i3]
+type = internal/i3
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-padding = 2
+label-focused-underline= ${colors.primary}
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-visible = %index%
+label-visible-foreground = ${colors.function}
+label-visible-padding = 2
+
+pin-workspaces = true
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = " %Y-%m-%d -"
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #bd93f9
+
+label = %date% %time%
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+format-overline = ${env:BASE0E}
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+format-overline = ${env:BASE0C}
+label = %gb_used%/%gb_total%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = 🔇 muted
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #8be9fd
+bar-volume-foreground-1 = #8be9fd
+bar-volume-foreground-2 = #8be9fd
+bar-volume-foreground-3 = #8be9fd
+bar-volume-foreground-4 = #8be9fd
+bar-volume-foreground-5 = #8be9fd
+bar-volume-foreground-6 = #8be9fd
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+initial = 1
+format-padding = 2
+format-underline = #8be9fd
+line-size = 1
+
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-open-foreground = ${colors.urgent}
+label-open-padding = 0
+
+label-close = 
+label-close-foreground = ${colors.background}
+label-close-background = ${colors.nord9}
+label-close-padding = 0
+
+menu-0-0 = 
+menu-0-0-foreground = ${colors.urgent}
+menu-0-0-background = ${colors.background}
+menu-0-0-padding = 1
+menu-0-0-exec = shutdown
+
+menu-0-1 = 
+menu-0-1-foreground = ${colors.warning}
+menu-0-1-background = ${colors.background}
+menu-0-1-padding = 1
+menu-0-1-exec = reboot
+
+menu-0-2 = 
+menu-0-2-foreground = ${colors.warning}
+menu-0-2-background = ${colors.background}
+menu-0-2-padding = 1
+menu-0-2-exec = systemctl suspend
+
+; Icons
+layout-icon-default = 
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+compositing-border = over
+pseudo-transparency = true
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
+
+
+[module/spotify]
+type = custom/script
+interval = 1
+format = <label>
+exec = ~/.config/polybar/scripts/get_spotify_status.sh
+click-left = ~/.config/polybar/scripts/next_spotify_music.sh
+click-right = ~/.config/polybar/scripts/prev_spotify_music.sh
+initial = 1
+format-padding = 3
+format-underline = #50fa7b
+line-size = 1
+
+
+[module/theme]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = #ff79c6
+click-left = ~/.scripts/themes/gruv.sh
+
+[module/theme-dark]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = #ff79c6
+click-left = ~/.scripts/themes/drac.sh
