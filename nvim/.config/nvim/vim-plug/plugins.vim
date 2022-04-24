@@ -8,10 +8,23 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'andweeb/presence.nvim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'folke/tokyonight.nvim'
+"Plug 'kyazdani42/nvim-web-devicons'
 Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'dylanaraps/wal.vim'
+Plug 'dylanaraps/wal'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'famiu/feline.nvim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 

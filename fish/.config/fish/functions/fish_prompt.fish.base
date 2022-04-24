@@ -1,0 +1,85 @@
+set __toaster_color_orange "{color3}"
+set __toaster_color_blue "{color12}"
+set __toaster_color_green "{color10}"
+set __toaster_color_yellow "{color11}"
+set __toaster_color_pink "{color9}"
+set __toaster_color_red "{color1}"
+set __toaster_color_grey "{color7}"
+set __toaster_color_white "{color15}"
+set __toaster_color_purple "{color13}"
+set __toaster_color_lilac "{color5}"
+set __toaster_color_grey_dark "{color0}"
+
+set __toaster_color_yellow_bold "{color11} --bold"
+set __toaster_color_grey_bold "{color7} --bold"
+
+function __toaster_color_echo
+  set_color (echo $argv[1] | cut -d '#' -f 2)
+  if test (count $argv) -eq 2
+    echo -n $argv[2]
+  end
+end
+
+function __toaster_current_folder
+  if test $PWD = '/'
+    echo -n '/'
+  else
+    echo -n $PWD | grep -o -E '[^\/]+$'
+  end
+end
+
+function __toaster_git_status_codes
+  echo (git status --porcelain ^/dev/null | sed -E 's/(^.{{3}}).*/\1/' | tr -d ' \n')
+end
+
+function __toaster_git_branch_name
+  echo (git rev-parse --abbrev-ref HEAD ^/dev/null)
+end
+
+function __toaster_rainbow
+  if echo $argv[1] | grep -q -e $argv[3]
+    __toaster_color_echo $argv[2] "彡ミ"
+  end
+end
+
+function __toaster_git_status_icons
+  set -l git_status (__toaster_git_status_codes)
+
+  __toaster_rainbow $git_status $__toaster_color_pink 'D'
+  __toaster_rainbow $git_status $__toaster_color_red 'D'
+  __toaster_rainbow $git_status $__toaster_color_orange 'R'
+  __toaster_rainbow $git_status $__toaster_color_white 'C'
+  __toaster_rainbow $git_status $__toaster_color_green 'A'
+  __toaster_rainbow $git_status $__toaster_color_blue 'U'
+  __toaster_rainbow $git_status $__toaster_color_lilac 'M'
+  __toaster_rainbow $git_status $__toaster_color_grey '?'
+end
+
+function __toaster_git_status
+  # In git
+  if test -n (__toaster_git_branch_name)
+
+    #__toaster_color_echo $__toaster_color_blue " git"
+    __toaster_color_echo $__toaster_color_grey " @ "
+    __toaster_color_echo $__toaster_color_purple (__toaster_git_branch_name)
+
+    if test -n (__toaster_git_status_codes)
+      __toaster_color_echo $__toaster_color_red ' ●'
+      __toaster_color_echo $__toaster_color_yellow ' [^._.^]ﾉ'
+      __toaster_git_status_icons
+    else
+      __toaster_color_echo $__toaster_color_green ' ○'
+    end
+  end
+end
+
+function fish_prompt
+  __toaster_color_echo $__toaster_color_yellow "•" 
+  __toaster_color_echo $__toaster_color_red "•" 
+  __toaster_color_echo $__toaster_color_lilac "•" 
+  __toaster_color_echo $__toaster_color_blue "• " 
+  __toaster_color_echo $__toaster_color_yellow (__toaster_current_folder)
+  __toaster_git_status
+  echo
+  __toaster_color_echo $__toaster_color_grey "∷ "
+end
