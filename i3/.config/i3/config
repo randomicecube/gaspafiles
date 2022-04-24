@@ -31,9 +31,12 @@ set $mod Mod4
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
+exec --no-startup-id /home/gaspa/.screenlayout/screen_script.sh
 exec redshift &
 exec flameshot &
+exec syncthing &
+exec --no-startup-id clipit &
+exec --no-startup-id ./scripts/wacom.sh
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
@@ -122,6 +125,11 @@ bindsym $mod+F11 exec --no-startup-id "rofi -font 'Noto Sans 13' -theme-str 'win
 # start rofi small
 bindsym $mod+p exec --no-startup-id rofi -show drun -font "Noto Sans 13"
 
+# start rofi-calc
+bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort
+# start rofi power menu
+bindsym $mod+i exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu
+
 ################# how to exit, logoff, suspend, ...
 
 # Backup exit
@@ -144,7 +152,7 @@ mode "$mode_system" {
 
 # ArcoLinux Logout
 bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
-bindsym $mod+X exec --no-startup-id arcolinux-logout
+bindsym $mod+X exec --no-startup-id /home/gaspa/.config/i3/scripts/lockScreen.sh
 
 ################# reload changed configuration     
 
@@ -306,10 +314,8 @@ assign [class="Discord|discord"] → 2
 # Workspace 4 Gimp
 # assign [class="Gimp"]                                                               → 4
 
-# Workspace 5 Images and meld
-# assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
-# assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
-# assign [class="Meld"]                                                               → 5
+# Workspace 5 TodoList
+assign [class="todoist|Todoist"] → 5
 
 # Workspace 6 all video related software
 # assign [class="Vlc|vlc"]                                                            → 6
@@ -352,10 +358,14 @@ for_window [class="Vivaldi-stable"] focus
 # Mail clients
 exec --no-startup-id thunderbird
 
+# Todo List
+exec --no-startup-id todoist
+
 # Music
 exec --no-startup-id spotify
 for_window [class="Spotify"] focus
 
+#exec --no-startup-id discord-canary
 exec --no-startup-id discord
 
 # TRAY APPLICATIONS
@@ -398,7 +408,7 @@ exec --no-startup-id volumeicon
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill /home/gaspa/Pictures/nordish-wall.png &
+exec --no-startup-id feh --bg-fill /home/gaspa/Pictures/peace.jpg &
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -409,7 +419,8 @@ exec --no-startup-id xfce4-power-manager &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
 # IF xfsettingsd is activated you can not change themes
 # exec --no-startup-id xfsettingsd &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+#exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
 ################# applications keyboard shortcuts  
 
@@ -422,7 +433,7 @@ bindsym control+mod1+w exec --no-startup-id arcolinux-welcome-app
 bindsym control+mod1+e exec --no-startup-id arcolinux-tweak-tool
 
 # conky
-bindsym $mod+c exec --no-startup-id conky-toggle
+# bindsym $mod+c exec --no-startup-id conky-toggle
 bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
 bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
 
@@ -461,10 +472,10 @@ bindsym control+mod1+u exec --no-startup-id pavucontrol
 
 # start xfce-appfinder
 # arcolinux does not seem to work
-bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
+#bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
 # pamac-manager
-bindsym control+mod1+p exec --no-startup-id pamac-manager
+#bindsym control+mod1+p exec --no-startup-id pamac-manager
 
 # xkill
 bindsym --release $mod+Escape exec xkill
@@ -474,7 +485,7 @@ bindsym --release $mod+Escape exec xkill
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 # qwerty/azerty conflict with w
 bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
-bindsym control+mod1+f exec --no-startup-id firefox;focus
+#bindsym control+mod1+f exec --no-startup-id firefox;focus
 bindsym control+mod1+v exec --no-startup-id vivaldi-stable;focus
 bindsym control+mod1+g exec --no-startup-id chromium;focus
 
@@ -581,10 +592,10 @@ for_window [class="Urxvt"] focus
 bindsym mod1+t exec --no-startup-id variety -t
 # next wallpaper
 bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
+bindsym mod1+q+Right exec --no-startup-id variety -n
 # previous wallpaper
 bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
+bindsym mod1+q+Left exec --no-startup-id variety -p
 # favorite wallpaper
 bindsym mod1+f exec --no-startup-id variety -f
 # pause wallpaper
@@ -631,13 +642,13 @@ bindsym $mod+b bar mode toggle
 ################# border control                   
 
 # Border control
-hide_edge_borders both
+# hide_edge_borders both
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 # changing border style
 # super+t in arcolinux is starting terminal
 bindsym $mod+t border normal
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 3
 bindsym $mod+u border none
 
 # new_window pixel 1
@@ -647,6 +658,9 @@ new_window normal
 # new_float pixel 1
 new_float normal
 # new_float none
+
+# KILLS BORDERS
+# default_border none
 
 ################# Popups  control                  
 
@@ -660,12 +674,12 @@ popup_during_fullscreen smart
 # delete or uncomment the following lines if you do not have it or do not
 # want it
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 gaps inner 6
 gaps outer 6
-gaps top 6
-gaps bottom 6
-# smart_gaps on
+gaps top 3
+gaps bottom 3
+smart_gaps on
 smart_borders on
 
 ################# i3 gaps change                   
@@ -710,7 +724,7 @@ mode "$mode_gaps_outer" {
 ################# picom of i3wm                  
 
 # if you want transparency on non-focused windows, ...
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
@@ -718,7 +732,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 bar {
     mode invisible
-    height 25
+    height 0
     workspace_buttons yes
 	font pango:Noto Sans Mono 11
     
@@ -726,9 +740,9 @@ bar {
     # position bottom
 
 	# system icons
-    # tray_output none
-    # tray_output $firstMonitor
-    # tray_output $secondMonitor
+    #tray_output none
+    #tray_output $firstMonitor
+    tray_output $secondMonitor
 
     # OPTION 1 : i3status
 
@@ -767,7 +781,7 @@ bar {
     # from the opening of the "bar {...}" till the end has to go or hashtagged out
     # in order for the system trayicons to show up in polybar
 
-    # exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
+    #exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 
     ##START THEMING BAR
     # Theme name : ArcoLinux Default
@@ -795,13 +809,15 @@ bar {
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          #ab9c84 #ab9c84 #d7d7d7 #ab9c84
+    client.focused          #aaaaaa #aaaaaa #aaaaaa #aaaaaa
     client.unfocused        #222222 #222222 #aaaaaa #222222
     client.focused_inactive #222222 #222222 #a9a9a9 #222222
     client.placeholder      #222222 #222222 #aaaaaa #222222
     client.urgent           #dcbcff #dcbcff #d7d7d7 #dcbcff
 
     client.background       #242424
+
+    # test #ab9c84
 
     ##STOP THEMING WM
 
