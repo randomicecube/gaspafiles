@@ -1,2 +1,2 @@
-#! /usr/bin/sh
+#!/bin/sh
 xdg-open https://fenix.tecnico.ulisboa.pt/disciplinas/ASA/2021-2022/1-semestre
