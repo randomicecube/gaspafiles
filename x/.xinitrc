@@ -1,5 +1,5 @@
 # Double monitor layout
-/home/gaspa/.screenlayout/arandr_1920x1080.sh
+# /home/gaspa/.screenlayout/arandr_1920x1080.sh
 
 setxkbmap pt
 redshift &
