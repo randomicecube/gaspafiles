@@ -1,11 +1,13 @@
-"Misc
+""""""""""""""
+" Vim Config "
+""""""""""""""
 
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
 set tabstop=2
 set showmatch
 set ignorecase
-"set cc=80
+set cc=80
 set shiftwidth=0
 set autoindent
 set hidden
@@ -20,25 +22,18 @@ set cursorline
 syntax enable
 syntax on
 
-"if has('termguicolors')
-	"removed because of wal
-"	set termguicolors
-"endif
+set termguicolors
+colorscheme gruvbox
 
-"colorscheme embark
-"colorscheme gruvbox
-
-"if strftime("%H") < 8 || strftime("%H") > 19
-"	colorscheme nord
-"	set background=dark
-"endif
-
-"Plug 'dylanaraps/wal'
-colorscheme wal
-set background=dark
+if strftime("%H") < 8 || strftime("%H") > 19
+	set background=dark
+else
+	set background=light
+	highlight Cursor ctermfg=Black ctermbg=Black cterm=bold guifg=black guibg=black gui=bold
+	highlight CursorColumn ctermfg=Black ctermbg=Black cterm=bold guifg=black guibg=black gui=bold
+endif
 
 "colorscheme tokyonight
-
 "let g:tokyonight_style = "night"
 
 set splitright

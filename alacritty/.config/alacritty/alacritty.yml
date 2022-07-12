@@ -1,10 +1,13 @@
-#import:
-#  - ~/.cache/wal/colors.yl
+live_config_reload: true
+custom_cursor_colors: true
+
+import:
+  - "~/.config/alacritty/color.yml"
+
 window:
-  #opacity: 0.93
   padding:
-    x: 16
-    y: 16
+    x: 8
+    y: 8
 
 scrolling:
   history: 20000
@@ -19,22 +22,7 @@ font:
     family: JetBrainsMono
   size: 11
 
-#background_opacity: 0.90
 colors:
-  primary:
-    background: "#20202a"
-    foreground: "#c8cedc"
-    bright_foreground: "#a0a8b6"
-    dim_foreground: "#4c5664"
-
-  cursor:
-    text: CellBackground
-    cursor: "#ebe3b9"
-
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: "#ebe3b9"
-
   search:
     matches:
       foreground: "#000000"
@@ -55,32 +43,28 @@ colors:
   selection:
     text: CellBackground
     background: CellForeground
-
-  bright:
-    red: "#ebb9b9"
-    green: "#caf6bb"
-    yellow: "#ebe3b9"
-    blue: "#cddbf9"
-    magenta: "#f6bbe7"
-    cyan: "#b8dceb"
-    white: "#c8cedc"
-
+  
+  cursor:
+    text: '0x474646'
+    cursor: '0xFD9394'
+  
   normal:
-    black: "#3b3b4d"
-    red: "#ebb9b9"
-    green: "#caf6bb"
-    yellow: "#ebe3b9"
-    blue: "#cddbf9"
-    magenta: "#f6bbe7"
-    cyan: "#b8dceb"
-    white: "#c8cedc"
+    black:   '0x474646'
+    red:     '0xDA7085'
+    green:   '0x98971a'
+    yellow:  '0xD5B875'
+    blue:    '0x70ACE5'
+    magenta: '0xA48ADD'
+    cyan:    '0x69C5CE'
+    white:   '0xBCBEC0'
 
-  dim:
-    black: "#32302f"
-    red: "#cc9b9d"
-    green: "#a3ccad"
-    yellow: "#d1ba97"
-    blue: "#076678"
-    magenta: "#c497b3"
-    cyan: "#86bfbc"
-    white: "#928374"
+  # Bright colorS
+  bright:
+    black:   '0x6A6C6C'
+    red:     '0xED8499'
+    green:   '0x97D589'
+    yellow:  '0xE9CB88'
+    blue:    '0x87BFF5'
+    magenta: '0xB9A0EF'
+    cyan:    '0x7BDBE4'
+    white:   '0xD0D2D3'

@@ -31,19 +31,14 @@ set $mod Mod4
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id /home/gaspa/.screenlayout/screen_script.sh
 exec redshift &
 exec flameshot &
-exec syncthing &
 exec --no-startup-id clipit &
-# exec --no-startup-id ./scripts/wacom.sh
-
-# exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
 
 # current setup
 
-set $firstMonitor DP0
-set $secondMonitor HDMI-0
+set $firstMonitor DisplayPort-0
+set $secondMonitor HDMI-A-0
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
@@ -203,18 +198,15 @@ font pango:FiraCode-Regular 8
 
 # Workspace 2 Discord
 
-assign [class="Discord|discord"] → 2
+assign [class="Discord|discord"]  → 2
 
 # Workspace 3 Spotify
-assign [class="Spotify|spotify"]                                                           → 3
+assign [class="Spotify|spotify"]  → 3
 # Hack because of spotify's bug (not wanting to move to ws 3)
 for_window [class="Spotify"] move to workspace 3
 
 # Workspace 4 email clients
-assign [class="thunderbird|Thunderbird"]                                                    → 4
-
-# Workspace 5 TodoList
-assign [class="todoist|Todoist"] → 5
+assign [class="thunderbird|Thunderbird"]  → 4
 
 ################# autostart - execute applications at boot time
 
@@ -225,9 +217,6 @@ exec_always --no-startup-id autotiling
 
 # Mail clients
 exec --no-startup-id thunderbird
-
-# Todo List
-exec --no-startup-id todoist
 
 # Music
 exec --no-startup-id spotify
@@ -247,9 +236,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # Updater
 exec --no-startup-id pamac-tray
 
-# Bluetooth
-exec --no-startup-id blueberry-tray
-
 # Network
 exec --no-startup-id nm-applet
 
@@ -257,7 +243,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill /home/gaspa/Downloads/art-room.jpg &
+exec_always --no-startup-id feh --bg-scale $HOME/gaspafiles/images/gruv-temple.png
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -266,26 +252,24 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
-################# applications keyboard shortcuts  
-
-# not workspace related
+################# applications keyboard shortcuts
 
 # terminal
 bindsym $mod+Shift+Return exec --no-startup-id alacritty;focus
-bindsym $mod+KP_Enter exec --no-startup-id alacritty;focus
 
 # pavucontrol
-bindsym control+mod+u exec --no-startup-id pavucontrol
+bindsym $mod+Ctrl+u exec --no-startup-id pavucontrol
 
 # xkill
 bindsym --release $mod+Escape exec xkill
 
-# floating enabled from some programs - find with xprop
+# bind wacom to main monitor
+bindsym $mod+w exec --no-startup-id ~/.config/i3/scripts/wacom.sh
 
-for_window [class="Pavucontrol"] floating disable
 for_window [class="^Spotify$"] floating disable
 for_window [class="^Vlc$"] floating disable
 
+for_window [class="Pavucontrol"] floating enable
 for_window [title="Copying"] floating enable
 for_window [title="Deleting"] floating enable
 for_window [title="Moving"] floating enable
@@ -299,7 +283,6 @@ for_window [window_role="setup"] floating enable
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
 bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
-# https://github.com/acrisci/playerctl/
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -315,6 +298,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 150- # decr
 # bar toggle, hide or show
 bindsym $mod+b bar mode toggle
 
+# reload polybar
+bindsym $mod+y exec --no-startup-id ~/.config/polybar/launch.sh
+
 ################# border control                   
 
 # Border control
@@ -324,7 +310,6 @@ bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 # changing border style
 # super+t in arcolinux is starting terminal
 bindsym $mod+t border normal
-bindsym $mod+y border pixel 3
 bindsym $mod+u border none
 
 # new_window pixel 1
@@ -343,19 +328,14 @@ new_float normal
 # Popups during fullscreen mode
 popup_during_fullscreen smart
 
-################# i3 gaps next                     
-
-# Settings for I3 next gap git
-# https://github.com/Airblader/i3/tree/gaps-next
-# delete or uncomment the following lines if you do not have it or do not
-# want it
+################# i3 gaps next  
 
 for_window [class="^.*"] border pixel 2
 gaps inner 6
 gaps outer 6
 gaps top 3
 gaps bottom 3
-smart_gaps on
+#smart_gaps on
 smart_borders on
 
 ################# i3 gaps change                   
@@ -410,42 +390,25 @@ bar {
     mode invisible
     height 0
     workspace_buttons yes
-	font pango:Noto Sans Mono 11
     
 	position top
     # position bottom
 
     tray_output $secondMonitor
+}
 
-    # polybar
+################# wm appearance     
 
-    colors {
-        background #2F2F2F
-        statusline #d7d7d7
-        separator  #666666
+# Window color settings
+# class                 border  backgr. text    indicator
+client.focused          #aaaaaa #aaaaaa #aaaaaa #aaaaaa
+client.unfocused        #222222 #222222 #aaaaaa #222222
+client.focused_inactive #222222 #222222 #a9a9a9 #222222
+client.placeholder      #222222 #222222 #aaaaaa #222222
+client.urgent           #dcbcff #dcbcff #d7d7d7 #dcbcff
 
-        # colorclass           border  backgr. text
-        focused_workspace     #a9a9a9 #5f676a #d7d7d7
-        active_workspace      #a9a9a9 #5f676a #d7d7d7
-        inactive_workspace    #a9a9a9 #222222 #a9a9a9
-        urgent_workspace      #a9a9a9 #dcbcff #d7d7d7
-        }
+client.background       #242424
 
-    }
-
-    ##START THEMING WM
-    # Window color settings
-    # class                 border  backgr. text    indicator
-    client.focused          #aaaaaa #aaaaaa #aaaaaa #aaaaaa
-    client.unfocused        #222222 #222222 #aaaaaa #222222
-    client.focused_inactive #222222 #222222 #a9a9a9 #222222
-    client.placeholder      #222222 #222222 #aaaaaa #222222
-    client.urgent           #dcbcff #dcbcff #d7d7d7 #dcbcff
-
-    client.background       #242424
-
-    # test #ab9c84
-
-    ##STOP THEMING WM
+# test #ab9c84
 
 ######################################## THE END 

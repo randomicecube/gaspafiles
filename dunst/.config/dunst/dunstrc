@@ -35,17 +35,17 @@ transparency = 5
 word_wrap = yes
 
 [urgency_low]
-background = "#21242b"
+background = "#474646"
 foreground = "#bbc2cf"
 timeout = 7
 
 [urgency_normal]
-background = "#21242b"
+background = "#474646"
 foreground = "#bbc2cf"
 timeout = 7
 
 [urgency_critical]
 background = "#cc6666"
-foreground = "#21242b"
+foreground = "#474646"
 timeout = 0
 ''

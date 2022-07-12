@@ -5,7 +5,7 @@ correct="yey!"
 color="ffffff"
 wrong_pass="tentaste"
 font="JetBrains Mono"
-background="$HOME/Pictures/peace.jpg"
+background="$HOME/gaspafiles/images/gruv-temple.png"
 
 i3lock \
   -t \

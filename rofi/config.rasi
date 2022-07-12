@@ -1,61 +1,158 @@
 configuration {
-  modi: "drun";
-  disable-history: false;
-  display-drun: "run";
-  drun-display-format: "{name}";
-  show-icons: true;
-  icon-theme: "Arc";
+    location: 						0;
+    font:                           "JetBrainsMonoMedium Nerd Font 11";
+    display-run: 					" ";
 }
-
-@theme "/dev/null"
-
-element-text, element-icon {
-  background-color: inherit;
-  text-color:       inherit;
-}
-
-@import "colors.rasi"
 
 * {
-  background-color: @bg;
-  text-color: @fg;
-  font: "JetBrainsMono Nerd Font 10";
+    red:                            #D65D0E;
+    darkred:                        #BF616A;
+    green  :                        #98971A;
+    darkgreen:                      #98971A;
+    yellow:                         #EBCB8B;
+    darkyellow:                     #EBCB8B;
+    blue:                           #5E81AC;
+    darkblue:                       #5E81AC;
+    purple:                         #B48EAD;
+    darkpurple:                     #B48EAD;
+    cyan:                           #88C0D0;
+    darkcyan:                       #88C0D0;
+    foreground:                     #D8DEE9;
+    background:                     #282828;
+    border:                         #434C5E;
 }
-
 window {
-  padding: 20px;
-  height: 60%;
-  width: 60%;
+    border: 						3px;
+    border-radius: 					0px;
+    padding: 						30;
+    width: 							40%;
+    height: 						30%;
+    border-color:                   @border;
 }
-
-prompt, entry {
-  text-color: @fg;
-  background-color: @al;
-  padding: 10px;
+mainbox {
+    border:  0;
+    padding: 0;
 }
-
+message {
+    border:       0px 0px 0px;
+    border-color: @separatorcolor;
+    padding:      1px;
+}
+textbox {
+    text-color: @foreground;
+}
 listview {
-  columns: 2;
-  lines: 10;
+    lines:		  15;
+    columns:      1;
+    fixed-height: 0;
+    border:       0px 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      0px;
+    scrollbar:    false;
+    padding:      2px 0px 0px ;
+    background:   @background;
 }
-
-entry {
-  margin: 0 0 10px 10px;
-}
-
-prompt {
-    background-color: @al;
-    text-color: @fg;
-    margin: 0 0 10px 0;
-    padding: 10px 20px;
-}
-
 element {
-  background-color: @bg;
-  padding: 10px 20px;
+    border:       0;
+    padding:      10px; 
+}
+element normal.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+element normal.urgent {
+    background-color: @red;
+    text-color:       @background;
+}
+element normal.active {
+    background-color: @green;
+    text-color:       @background;
+}
+element selected.normal {
+    background-color: @red;
+    border-radius:    10px;
+    text-color:       @background;
+}
+element selected.urgent {
+    background-color: @red;
+    text-color:       @background;
+}
+element selected.active {
+    background-color: @yellow;
+    text-color:       @background;
+}
+element alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+element alternate.urgent {
+    background-color: @green;
+    text-color:       @background;
+}
+element alternate.active {
+    background-color: @green;
+    text-color:       @background;
+}
+element-text {
+    cursor:           inherit;
+    highlight:        inherit;
+    text-color:       inherit;
+}
+element-icon {
+    size:             1.0000em;
+    cursor:           inherit;
+    text-color:       inherit;
 }
 
-element.selected {
-  background-color: @fg;
-  text-color: @bg;
+scrollbar {
+    width:        0px;
+    border:       0;
+    handle-color: @yellow;
+    handle-width: 8px;
+    padding:      0;
+}
+sidebar {
+    border:       0px 0px 0px;
+    padding:      5px 0 0;
+    border-color: @separatorcolor;
+}
+button {
+    spacing:    0;
+    background: @background;
+    text-color: @foreground;
+}
+button.selected {
+    background-color: @border;
+    border-radius:    50px;
+    text-color:       @background;
+}
+case-indicator {
+    spacing:    0;
+    text-color: @foreground;
+}
+entry {
+    spacing:    10px;
+    padding:	10px;
+    text-color: @foreground;
+    placeholder:        "Search";
+    placeholder-color:  @foreground;
+}
+prompt {
+    spacing:    10px;
+    padding:	10px;
+    text-color: @green;
+}
+inputbar {
+    background-color: @background;
+    margin:   0px 0px 10px;
+    border:         10px;
+    border-radius:  0px;
+    border-color:   @background;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     10px 0.3em 0em 0em;
+    text-color: @foreground;
 }
