@@ -384,19 +384,6 @@ exec_always --no-startup-id picom --experimental-backends --config ~/.config/pic
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
-################# bar appearance                   
-
-bar {
-    mode invisible
-    height 0
-    workspace_buttons yes
-    
-	position top
-    # position bottom
-
-    tray_output $secondMonitor
-}
-
 ################# wm appearance     
 
 # Window color settings
