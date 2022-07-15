@@ -31,7 +31,6 @@ shrink = no
 sort = yes
 startup_notification = false
 sticky_history = yes
-transparency = 5
 word_wrap = yes
 
 [urgency_low]
