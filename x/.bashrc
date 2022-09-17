@@ -7,10 +7,6 @@
 
 export HISTCONTROL=ignoreboth:erasedups
 
-export PATH="$PATH:$HOME/gaspafiles/dmenu/dmenu/shortcuts"
-export PATH="$PATH:/usr/lib/python3.9"
-export PATH="$PATH:/home/gaspa/.cargo/bin"
-
 export TERM="xterm-256color"
 export EDITOR="nvim"
 PS1='[\u@\h \W]\$ '

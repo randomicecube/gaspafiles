@@ -1,6 +1,8 @@
 alias ssh='TERM=xterm-256color /usr/bin/ssh'
 alias clip='xclip -sel clip'
 
+alias setenv-dsi='export JAVA_HOME="/usr/lib/jvm/java-8-openjdk" && export JAVA_OPTS="-server -Xms256m -Xmx1024m -XX:PermSize=384m" && export MAVEN_OPTS="$JAVA_OPTS -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false"'
+
 alias vim="nvim"
 alias neo="neofetch"
 

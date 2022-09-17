@@ -1,9 +1,6 @@
 live_config_reload: true
 custom_cursor_colors: true
 
-import:
-  - "~/.config/alacritty/color.yml"
-
 window:
   padding:
     x: 8
@@ -47,24 +44,6 @@ colors:
   cursor:
     text: '0x474646'
     cursor: '0xFD9394'
-  
-  normal:
-    black:   '0x474646'
-    red:     '0xDA7085'
-    green:   '0x98971a'
-    yellow:  '0xD5B875'
-    blue:    '0x70ACE5'
-    magenta: '0xA48ADD'
-    cyan:    '0x69C5CE'
-    white:   '0xBCBEC0'
 
-  # Bright colorS
-  bright:
-    black:   '0x6A6C6C'
-    red:     '0xED8499'
-    green:   '0x97D589'
-    yellow:  '0xE9CB88'
-    blue:    '0x87BFF5'
-    magenta: '0xB9A0EF'
-    cyan:    '0x7BDBE4'
-    white:   '0xD0D2D3'
+import:
+  - "~/.config/alacritty/color.yml"
