@@ -1,0 +1,3 @@
+[submodule "config/utils/wallpapers"]
+	path = config/utils/wallpapers
+	url = git@github.com:catppuccin/wallpapers
