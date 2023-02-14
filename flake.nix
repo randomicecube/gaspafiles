@@ -118,7 +118,7 @@
         config.allowUnfree = true;
       };
 
-      agenixPackage = inputs.agenix.defaultPackage.${system}.default;
+      agenixPackage = inputs.agenix.packages.${system}.default;
       spicetifyPkgs = inputs.spicetify-nix.packages.${system}.default;
 
       systemModules = mkModules ./modules/system;

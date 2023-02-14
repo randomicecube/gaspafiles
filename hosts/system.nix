@@ -5,7 +5,7 @@
 #
 # System config common across all hosts
 
-{ inputs, pkgs, lib, config, configDir, ... }:
+{ inputs, pkgs, lib, config, configDir, agenixPackage, ... }:
 let
   inherit (builtins) toString;
   inherit (lib.my) mapModules;
