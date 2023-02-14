@@ -24,7 +24,7 @@
     cleanTmpDir = true;
   };
 
-  networking.hostId = "239be557";
+  networking.hostId = "ea68da8f";
   zramSwap.enable = true;
 
   environment.persistence."/persist" = {

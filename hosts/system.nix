@@ -22,7 +22,7 @@ in {
   '';
 
   # Every host shares the same time zone.
-  #time.timeZone = "Europe/Lisbon";
+  time.timeZone = "Europe/Lisbon";
 
   location = {
     provider = "manual";
