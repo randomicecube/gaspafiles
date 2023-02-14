@@ -2,7 +2,7 @@
 #
 # System configuration for murray (VM).
 
-{ pkgs, lib, sshKeys, config, hostSecretsDir, user, agenixPackage, ... }: {
+{ pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
 
   boot = {
     loader = {

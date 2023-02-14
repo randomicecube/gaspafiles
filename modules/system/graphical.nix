@@ -2,7 +2,7 @@
 #
 # Login manager and graphical configuration.
 
-{ pkgs, config, lib, user, colors, configDir, ... }:
+{ pkgs, config, lib, ... }:
 let
   inherit (lib) mkEnableOption mkOption types mkIf;
   cfg = config.modules.graphical;

@@ -64,7 +64,7 @@ in {
     gdu
     duf
     tree
-    # agenixPackage
+    agenixPackage
   ];
 
   programs.dconf.enable = true;

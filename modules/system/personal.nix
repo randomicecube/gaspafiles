@@ -2,7 +2,7 @@
 #
 # Config for personal machines
 
-{ pkgs, config, lib, user, colors, configDir, ... }:
+{ pkgs, config, lib, ... }:
 let
   inherit (lib) mkEnableOption mkOption types mkIf;
   cfg = config.modules.personal;

@@ -2,7 +2,7 @@
 #
 # System configuration for sly (desktop).
 
-{ pkgs, lib, sshKeys, config, hostSecretsDir, user, agenixPackage, ... }: {
+{ pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
 
   boot = {
     loader = {

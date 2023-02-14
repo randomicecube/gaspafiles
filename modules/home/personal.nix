@@ -11,8 +11,6 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs;[
-      # agenix
-      # agenix
       # calc
       libqalculate
       # LaTeX
@@ -25,8 +23,6 @@ in {
       gcc
       # Make
       gnumake
-      # killall
-      killall
     ];
   };
 }

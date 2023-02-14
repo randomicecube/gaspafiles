@@ -18,8 +18,14 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix.url = "github:ryantm/agenix/main";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    agenix = {
+      url = "github:ryantm/agenix/main";
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
     nvim-osc52 = {
       url = "github:ojroques/nvim-osc52/main";
       flake = false;
@@ -112,7 +118,7 @@
         config.allowUnfree = true;
       };
 
-      # agenixPackage = inputs.agenix.defaultPackage.${system};
+      agenixPackage = inputs.agenix.defaultPackage.${system}.default;
       spicetifyPkgs = inputs.spicetify-nix.packages.${system}.default;
 
       systemModules = mkModules ./modules/system;
@@ -135,7 +141,7 @@
           value = inputs.nixpkgs.lib.nixosSystem {
             inherit system pkgs;
             specialArgs = {
-              inherit user colors sshKeys secretsDir;
+              inherit user colors sshKeys agenixPackage secretsDir;
               configDir = ./config;
               hostSecretsDir = "${secretsDir}/${name}";
               hostName = name;
