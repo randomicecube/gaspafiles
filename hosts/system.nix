@@ -1,8 +1,5 @@
 # hosts/system.nix
 #
-# Author: Diogo Correia <me@diogotc.com>
-# URL:    https://github.com/RageKnify/Config
-#
 # System config common across all hosts
 
 { inputs, pkgs, lib, config, configDir, agenixPackage, ... }:
