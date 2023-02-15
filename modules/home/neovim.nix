@@ -123,18 +123,6 @@ let
       config = ''
         -- enable highlighting
         require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-
-        local function define_fdm()
-          if (require "nvim-treesitter.parsers".has_parser()) then
-            -- with treesitter parser
-            vim.wo.foldexpr="nvim_treesitter#foldexpr()"
-            vim.wo.foldmethod="expr"
-          else
-            -- without treesitter parser
-            vim.wo.foldmethod="syntax"
-          end
-        end
-        vim.api.nvim_create_autocmd({ "FileType" }, { callback = define_fdm })
       '';
     }
 
@@ -391,11 +379,6 @@ in {
         \ if line("'\"") > 1 && line("'\"") <= line("$") |
         \   execute "normal! g`\"" |
         \ endif
-
-        nnoremap <silent> <Up>       :resize +2<CR>
-        nnoremap <silent> <Down>     :resize -2<CR>
-        nnoremap <silent> <Left>     :vertical resize +2<CR>
-        nnoremap <silent> <Right>    :vertical resize -2<CR>
 
         "move to the split in the direction shown, or create a new split
         nnoremap <silent> <C-h> :call WinMove('h')<cr>
