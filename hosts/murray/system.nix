@@ -24,7 +24,9 @@
     cleanTmpDir = true;
   };
 
+  networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
   networking.hostId = "cff260c9";
+  
   zramSwap.enable = true;
 
   # environment.persistence."/persist" = {
@@ -40,9 +42,6 @@
   #     "/etc/ssh/ssh_host_ed25519_key.pub"
   #   ];
   # };
-
-
-  networking.networkmanager.enable = true;
 
   services.openssh = {
     enable = true;

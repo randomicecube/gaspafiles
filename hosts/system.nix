@@ -70,6 +70,8 @@ in {
   programs.dconf.enable = true;
   services.blueman.enable = config.hardware.bluetooth.enable;
 
+  networking.networkmanager.enable = true;
+
   # dedup equal pages
   hardware.ksm = {
     enable = true;
