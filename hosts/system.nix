@@ -65,6 +65,7 @@ in {
     duf
     tree
     agenixPackage
+    gparted
   ];
 
   programs.dconf.enable = true;
