@@ -1,4 +1,4 @@
-# modules/home/graphical/gtk.nix
+# modules/graphical/gtk.nix
 #
 # gtk configuration.
 
@@ -10,7 +10,7 @@ in
 {
   options.modules.graphical.gtk.enable = mkEnableOption "gtk";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     gtk.enable = true;
     gtk = {
       font = {

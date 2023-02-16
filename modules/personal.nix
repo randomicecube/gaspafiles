@@ -1,18 +1,35 @@
-# modules/system/personal.nix
+# modules/personal.nix
 #
-# Config for personal machines
+# personal home configuration.
 
-{ pkgs, config, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
-  inherit (lib) mkEnableOption mkOption types mkIf;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.personal;
-in
-{
-  options.modules.personal = {
-    enable = mkEnableOption "personal";
-  };
+in {
+  options.modules.personal.enable = mkEnableOption "personal";
 
   config = mkIf cfg.enable {
+    hm.home.packages = with pkgs;[
+      # calc
+      libqalculate
+      # LaTeX
+      texlive.combined.scheme-full
+      texlab
+      # Rust
+      rustup
+      pkgs.unstable.rust-analyzer
+      # GCC
+      gcc
+      # Make
+      gnumake
+    ];
+
+    hm.programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     # to login into Fenix with Kerberos, on Firefox's about:config
     # network.negotiate-auth.trusted-uris	= id.tecnico.ulisboa.pt
     krb5 =  {

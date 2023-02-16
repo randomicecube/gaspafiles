@@ -1,9 +1,9 @@
-# hosts/sly/system.nix
-#
-# System configuration for sly (desktop).
+# hosts/bentley/configuration.nix
+
+# Configuration for bentley (laptop)
 
 { pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
-
+  # Boot stuff
   boot = {
     loader = {
       systemd-boot = {
@@ -25,7 +25,7 @@
   };
 
   networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
-  networking.hostId = "0257f01a";
+  networking.hostId = "ea68da8f";
 
   zramSwap.enable = true;
 
@@ -51,51 +51,18 @@
   };
 
   security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  # };
-
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.nvidia.prime = {
-  #   offload.enable = true;
-
-  #   intelBusId = "PCI:0:2:0";
-  #   nvidiaBusId = "PCI:2:0:0";
-  # };
-  # services.xserver.screenSection = ''
-  #   Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-  #   Option         "AllowIndirectGLXProtocol" "off"
-  #   Option         "TripleBuffer" "on"
-  # '';
-
-  modules = {
-    graphical.enable = true;
-    personal.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
-  # environment.systemPackages = let
-  #   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-  #     export __NV_PRIME_RENDER_OFFLOAD=1
-  #     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-  #     export __GLX_VENDOR_LIBRARY_NAME=nvidia
-  #     export __VK_LAYER_NV_optimus=NVIDIA_only
-  #     exec "$@"
-  #   '';
-  # in ([ nvidia-offload ]);
+  services.blueman.enable = config.hardware.bluetooth.enable;
+  hardware.bluetooth.enable = true;
 
-  users = {
-    mutableUsers = false;
-    users = {
-      ${user} = {
-        hashedPassword = "$y$j9T$2wDkcLN6AlpFD4P1WX0zU0$FLDV6SZb/7ZHl3lKzlEE3D2qyVr3p/gJhuwKQ7w95V0";
-        openssh.authorizedKeys.keys = sshKeys;
-        extraGroups = [ "networkmanager" ];
-      };
-    };
-  };
+  # Battery saver
+  services.tlp.enable = true;
 
   virtualisation.docker.enable = true;
   # virtualisation.libvirtd.enable = true;
@@ -115,4 +82,33 @@
   #   cert = config.age.secrets.bentleyNebulaCert.path;
   #   key = config.age.secrets.bentleyNebulaKey.path;
   # };
+
+  # Home config
+  modules = {
+    editors.neovim.enable = true;
+    graphical.enable = true;
+    graphical.alacritty.enable = true;
+    graphical.dev.enable = true;
+    graphical.gtk.enable = true;
+    graphical.i3.enable = true;
+    graphical.polybar.enable = true;
+    graphical.programs.enable = true;
+    graphical.rofi.enable = true;
+    graphical.spotify.enable = true;
+    graphical.sxhkd.enable = true;
+    graphical.zathura.enable = true;
+    personal.enable = true;
+    shell = {
+      git.enable = true;
+      zsh.enable = true;
+    };
+    xdg.enable = true;
+  };
+
+  hm.home.packages = with pkgs;
+    [
+      # Add packages here.
+    ];
+  
+  system.stateVersion = "22.11";
 }

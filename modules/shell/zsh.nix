@@ -1,15 +1,15 @@
-# modules/home/zsh.nix
+# modules/shell/zsh.nix
 #
 # zsh (with oh-my-zsh) configuration.
 
 { pkgs, config, lib, ... }:
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.modules.zsh;
+  cfg = config.modules.shell.zsh;
 in {
-  options.modules.zsh.enable = mkEnableOption "zsh";
+  options.modules.shell.zsh.enable = mkEnableOption "zsh";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.zsh = {
       enable = true;
       oh-my-zsh = {

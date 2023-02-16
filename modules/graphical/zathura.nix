@@ -1,4 +1,4 @@
-# modules/home/graphical/zathura.nix
+# modules/graphical/zathura.nix
 #
 # PDF viewer
 
@@ -9,7 +9,7 @@ let
 in {
   options.modules.graphical.zathura.enable = mkEnableOption "zathura";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.zathura = {
       enable = true;
       options = {

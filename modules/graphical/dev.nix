@@ -1,4 +1,4 @@
-# modules/home/graphical/dev.nix
+# modules/graphical/dev.nix
 #
 # Configuration for development (IDEs and other tools).
 
@@ -9,7 +9,7 @@ let
 in {
   options.modules.graphical.dev.enable = mkEnableOption "dev";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     home.packages = [
       # Jetbrains Gateway (remote development)
       pkgs.unstable.jetbrains.gateway

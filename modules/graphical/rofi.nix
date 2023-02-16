@@ -1,4 +1,4 @@
-# modules/home/graphical/rofi.nix
+# modules/graphical/rofi.nix
 #
 # rofi configuration.
 
@@ -11,7 +11,7 @@ in
 {
   options.modules.graphical.rofi.enable = mkEnableOption "rofi";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.rofi = {
       enable = true;
       plugins = with pkgs; [
@@ -27,7 +27,8 @@ in
         sidebar-mode = false;
       };
       theme = let
-        inherit (config.lib.formats.rasi) mkLiteral;
+        # FIXME: very hacky, dunno how to fix
+        inherit (config.home-manager.users.gaspa.lib.formats.rasi) mkLiteral;
       in
       {
         # this is taken from adi1090x/rofi

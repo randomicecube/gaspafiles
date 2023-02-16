@@ -4,64 +4,23 @@
 
 { pkgs, config, lib, ... }:
 let
-  inherit (lib) mkEnableOption mkOption types mkIf;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.graphical;
 in
 {
   options.modules.graphical = {
     enable = mkEnableOption "graphical";
-    extraSetupCommands = mkOption { type = types.str; default = ""; };
   };
 
   config = mkIf cfg.enable {
-    services.xserver = {
-      enable = true;
-      # TODO: laptop only
-      libinput = {
-        enable = true;
-        touchpad.naturalScrolling = true;
-      };
-      layout = "pt";
-      displayManager = {
-        setupCommands = ''
-        ${cfg.extraSetupCommands}
-        '';
-        defaultSession = "user-xsession";
-        session = [
-          {
-            name = "user-xsession";
-            manage = "desktop";
-            start = ''
-            exec $HOME/.xsession
-            '';
-          }
-        ];
-        lightdm = {
-          enable = true;
-          extraConfig = ''
-            set logind-check-graphical=true
-          '';
-          greeters.gtk = {
-            enable = true;
-            theme = {
-              package = pkgs.rose-pine-gtk-theme;
-              name = "Rose-Pine";
-            };
-            iconTheme = {
-              package = pkgs.papirus-icon-theme;
-              name = "Papirus-Dark";
-            };
-          };
-        };
-      };
-    };
-
-    services.redshift = {
+    hm.services.redshift = {
       enable = true;
       temperature = {
         day = 4000;
         night = 3000;
       };
+      latitude = 38.743;
+      longitude = -9.195;
     };
 
     # Required for gtk. (copied from RiscadoA)

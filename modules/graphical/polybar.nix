@@ -1,4 +1,4 @@
-# modules/home/graphical/polybar.nix
+# modules/graphical/polybar.nix
 #
 # polybar configuration.
 
@@ -11,7 +11,7 @@ in
 {
   options.modules.graphical.polybar.enable = mkEnableOption "polybar";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     systemd.user.services.polybar = {
       Unit.PartOf = mkForce [ "graphical-session-i3.target" ];
       Install.WantedBy = mkForce [ "graphical-session-i3.target" ];

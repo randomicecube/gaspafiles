@@ -1,4 +1,4 @@
-# modules/home/graphical/sxhkd.nix
+# modules/graphical/sxhkd.nix
 #
 # sxhkd configuration.
 
@@ -11,7 +11,7 @@ in
 {
   options.modules.graphical.sxhkd.enable = mkEnableOption "sxhkd";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     xsession.windowManager.i3.config.startup = [
         { command = "sxhkd"; notification = false; }
     ];

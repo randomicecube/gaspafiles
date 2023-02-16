@@ -1,11 +1,11 @@
-# modules/home/neovim.nix
+# modules/editors/neovim.nix
 #
 # neovim home configuration. (Based on RageKnify's)
 
 { pkgs, config, lib, ... }:
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.modules.neovim;
+  cfg = config.modules.editors.neovim;
   personal = config.modules.personal.enable;
   git = config.modules.shell.git.enable;
   commonGrammars =
@@ -56,7 +56,7 @@ let
         vim.o.showmode=false
         require'lualine'.setup {
           options = {
-            theme = 'material',
+            theme = 'auto',
             section_separators = {left='', right=''},
             component_separators = {left='', right=''},
             icons_enabled = true
@@ -339,10 +339,10 @@ let
     setlocal expandtab
   '';
 in {
-  options.modules.neovim.enable = mkEnableOption "neovim";
+  options.modules.editors.neovim.enable = mkEnableOption "neovim";
 
   # Home manager module
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.neovim = {
       package = pkgs.unstable.neovim-unwrapped;
       enable = true;
@@ -466,26 +466,26 @@ in {
     };
 
     # languages that should use 2 space indent
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/markdown.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/markdown.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/nix.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/nix.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/ocaml.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/ocaml.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/wast.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/wast.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/yaml.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/yaml.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/yacc.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/yacc.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/lex.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/lex.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/cpp.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/cpp.vim".text =
       twoSpaceIndentConfig;
-    home.file."${config.xdg.configHome}/nvim/after/ftplugin/tex.vim".text =
+    home.file."${config.my.configHome}/nvim/after/ftplugin/tex.vim".text =
       twoSpaceIndentConfig;
 
-    home.file."${config.xdg.configHome}/nvim/lua/generic_lsp.lua".text = ''
+    home.file."${config.my.configHome}/nvim/lua/generic_lsp.lua".text = ''
       local lsp = require'lspconfig'
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true

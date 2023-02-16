@@ -1,4 +1,4 @@
-# modules/home/graphical/spotify.nix
+# modules/raphical/spotify.nix
 #
 # Spotify configuration and themeing with Spicetify
 
@@ -9,7 +9,7 @@ let
 in {
   options.modules.graphical.spotify.enable = mkEnableOption "spotify";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.spicetify = {
       enable = true;
       theme = spicetifyPkgs.themes.Comfy;

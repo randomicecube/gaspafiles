@@ -1,4 +1,4 @@
-# modules/home/shell/git.nix
+# modules/shell/git.nix
 #
 # Git configuration. (Based on RageKnify's)
 
@@ -9,7 +9,7 @@ let
 in {
   options.modules.shell.git.enable = mkEnableOption "git";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.git = {
       enable = true;
       userName = "Diogo Gaspar";

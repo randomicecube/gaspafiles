@@ -1,4 +1,4 @@
-# modules/home/graphic/programs.nix
+# modules/graphic/programs.nix
 #
 # Useful GUI programs
 
@@ -9,7 +9,7 @@ let
 in {
   options.modules.graphical.programs.enable = mkEnableOption "programs";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     home.packages = with pkgs; [
       discord-openasar
       gimp

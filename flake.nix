@@ -121,8 +121,7 @@
       agenixPackage = inputs.agenix.packages.${system}.default;
       spicetifyPkgs = inputs.spicetify-nix.packages.${system}.default;
 
-      systemModules = mkModules ./modules/system;
-      homeModules = mkModules ./modules/home;
+      allModules = mkModules ./modules;
 
       # Imports every nix module from a directory, recursively.
       mkModules = dir:
@@ -141,34 +140,26 @@
           value = inputs.nixpkgs.lib.nixosSystem {
             inherit system pkgs;
             specialArgs = {
-              inherit user colors sshKeys agenixPackage secretsDir;
+              inherit inputs user colors sshKeys agenixPackage secretsDir spicetifyPkgs;
               configDir = ./config;
               hostSecretsDir = "${secretsDir}/${name}";
               hostName = name;
             };
             modules = [
               { networking.hostName = name; }
-              (dir + "/system.nix")
               (dir + "/${name}/hardware.nix")
-              (dir + "/${name}/system.nix")
+              (dir + "/${name}/configuration.nix")
               inputs.home.nixosModules.home-manager
               {
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  extraSpecialArgs = {
-                    inherit colors spicetifyPkgs;
-                    hostColor = hostNameToColor name;
-                    configDir = ./config;
-                  };
-                  sharedModules = homeModules
-                    ++ [ inputs.spicetify-nix.homeManagerModule ];
-                  users.${user} = import (dir + "/${name}/home.nix");
+                  sharedModules = [ inputs.spicetify-nix.homeManagerModule ];
                 };
               }
               inputs.impermanence.nixosModules.impermanence
               # inputs.agenix.nixosModules.age
-            ] ++ systemModules;
+            ] ++ allModules;
           };
         }) (attrNames (readDir dir)));
 

@@ -1,4 +1,4 @@
-# modules/home/graphical/alacritty.nix
+# modules/graphical/alacritty.nix
 #
 # alacritty configuration, copied from rageknify.
 
@@ -10,7 +10,7 @@ in
 {
   options.modules.graphical.alacritty.enable = mkEnableOption "alacritty";
 
-  config = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable {
     programs.alacritty = {
       enable = true;
       settings = {
