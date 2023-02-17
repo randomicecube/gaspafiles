@@ -1,3 +1,3 @@
 # gaspafiles
 
-My Linux configurations, now for systems running NixOS!
+My Linux configurations, for systems running NixOS!

@@ -47,6 +47,7 @@ in {
           email = "diogo.marques.gaspar@tecnico.ulisboa.pt";
         };
       }];
+      signByDefault = true;
     };
   }
   (mkIf (cfg.commits.signingkey != null) {
