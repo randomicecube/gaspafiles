@@ -4,7 +4,7 @@
 
 { lib, config, configDir, ... }:
 let
-  inherit (lib) mkEnableOption mkOption mkIf types;
+  inherit (lib) mkEnableOption mkOption mkMerge mkIf types;
   cfg = config.modules.shell.git;
 in {
   options.modules.shell.git = {
@@ -25,7 +25,7 @@ in {
     };
   };
 
-  config.hm = mkIf cfg.enable {
+  config.hm = mkIf cfg.enable (mkMerge [{
     programs.git = {
       enable = true;
       extraConfig = {
@@ -48,6 +48,14 @@ in {
         };
       }];
     };
-  };
+  }
+  (mkIf (cfg.commits.signingkey != null) {
+    config = {
+      commit.gpgSign = true;
+      gpg.format = "ssh";
+      user.signingkey = cfg.commits.signingkey;
+    };
+  })
+  ]);
 }
 
