@@ -104,7 +104,7 @@
     host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
     user.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij";
     allowSSHAgentAuth = true;
-    manageKnownHosts.enable = true;
+    # manageKnownHosts.enable = true;
   };
 
   hm.home.packages = with pkgs;
