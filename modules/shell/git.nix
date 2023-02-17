@@ -55,6 +55,7 @@ in {
       gpg.format = "ssh";
       user.signingkey = cfg.commits.signingkey;
     };
+    signing.signByDefault = true;
   })
   ]);
 }

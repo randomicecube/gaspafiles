@@ -46,7 +46,7 @@ let cfg = config.modules.services.ssh; in
 
     allowSSHAgentAuth = mkEnableOption "SSH agent authentication";
 
-    # preferAskPassword = mkEnableOption "Prefer ASKPASS";
+    preferAskPassword = mkEnableOption "Prefer ASKPASS";
 
     manageKnownHosts = {
       enable = mkEnableOption "SSH hosts management";
@@ -80,7 +80,7 @@ let cfg = config.modules.services.ssh; in
         '';
       };
 
-      # systemd.user.services.ssh-agent.serviceConfig.Restart = lib.mkForce "always";
+      systemd.user.services.ssh-agent.serviceConfig.Restart = lib.mkForce "always";
       systemd.services.lock-ssh-agent = {
         enable = true;
         description = "Lock SSH Agent";
