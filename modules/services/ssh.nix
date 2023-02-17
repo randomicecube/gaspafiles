@@ -40,10 +40,6 @@ let cfg = config.modules.services.ssh; in
       };
     };
 
-    allUsers = mkOption {
-      type = types.attrsOf (types.nullOr types.str);
-    };
-
     allowSSHAgentAuth = mkEnableOption "SSH agent authentication";
 
     preferAskPassword = mkEnableOption "Prefer ASKPASS";
@@ -56,6 +52,8 @@ let cfg = config.modules.services.ssh; in
         description = "Extra known_hosts";
       };
     };
+
+    allHosts = mapAttrs (_: v: v.publicKey) sshKeys;
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -90,7 +88,7 @@ let cfg = config.modules.services.ssh; in
       };
     }
     (mkIf cfg.manageKnownHosts.enable {
-      programs.ssh.knownHosts = mapAttrs (_: v: { publicKey = v; }) (sshKeys // cfg.manageKnownHosts.extraHosts);
+      programs.ssh.knownHosts = mapAttrs (_: v: { publicKey = v; }) (cfg.allHosts // cfg.manageKnownHosts.extraHosts);
       programs.ssh.extraConfig = concatMapStringsSep "\n"
         (host: ''
           Host ${host}
@@ -98,7 +96,7 @@ let cfg = config.modules.services.ssh; in
             ${optionalString (config.networking.domain != null) "HostName ${host}.${config.networking.domain}"}
             ${optionalString cfg.allowSSHAgentAuth "ForwardAgent yes"}
         '')
-        (attrNames sshKeys);
+        (attrNames cfg.allHosts);
     })
     (mkIf cfg.allowSSHAgentAuth {
       security = {
