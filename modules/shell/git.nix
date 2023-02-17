@@ -50,7 +50,7 @@ in {
     };
   }
   (mkIf (cfg.commits.signingkey != null) {
-    extraConfig = {
+    config = {
       commit.gpgSign = true;
       gpg.format = "ssh";
       user.signingkey = cfg.commits.signingkey;
