@@ -1,6 +1,6 @@
 # modules/shell/git.nix
 #
-# Git configuration. (Based on RageKnify's)
+# Git configuration. (Based on RageKnify's + luishfonseca's)
 
 { lib, config, configDir, ... }:
 let
