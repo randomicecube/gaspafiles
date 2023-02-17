@@ -43,13 +43,6 @@
   #   ];
   # };
 
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-    authorizedKeysFiles = lib.mkForce [ "/etc/ssh/authorized_keys.d/%u" ];
-    kbdInteractiveAuthentication = false;
-  };
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -79,26 +72,39 @@
 
   # Home config
   modules = {
-    editors.neovim.enable = true;
-    graphical.enable = true;
-    graphical.alacritty.enable = true;
-    graphical.dev.enable = true;
-    graphical.gtk.enable = true;
-    graphical.i3.enable = true;
-    graphical.polybar.enable = true;
-    graphical.programs.enable = true;
-    graphical.rofi.enable = true;
-    graphical.spotify.enable = true;
-    graphical.sxhkd.enable = true;
-    graphical.zathura.enable = true;
+    editors = {
+      neovim.enable = true;
+    };
+    graphical = {
+      enable = true;
+      alacritty.enable = true;
+      dev.enable = true;
+      gtk.enable = true;
+      i3.enable = true;
+      polybar.enable = true;
+      programs.enable = true;
+      rofi.enable = true;
+      spotify.enable = true;
+      sxhkd.enable = true;
+      zathura.enable = true;
+    };
     personal.enable = true;
-    services.gpg.enable = true;
-    services.ssh.enable = true;
+    services = {
+      gpg.enable = true;
+      ssh.enable = true;
+    };
     shell = {
       git.enable = true;
       zsh.enable = true;
     };
     xdg.enable = true;
+  };
+
+  modules.services.ssh = {
+    host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
+    user.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij";
+    allowSSHAgentAuth = true;
+    manageKnownHosts.enable = true;
   };
 
   hm.home.packages = with pkgs;

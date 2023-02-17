@@ -50,12 +50,14 @@ in {
     };
   }
   (mkIf (cfg.commits.signingkey != null) {
-    config = {
-      commit.gpgSign = true;
-      gpg.format = "ssh";
-      user.signingkey = cfg.commits.signingkey;
+    config.programs.git = {
+      extraConfig = {
+        commit.gpgSign = true;
+        gpg.format = "ssh";
+        user.signingkey = cfg.commits.signingkey;
+      };
+      signing.signByDefault = true;
     };
-    signing.signByDefault = true;
   })
   ]);
 }

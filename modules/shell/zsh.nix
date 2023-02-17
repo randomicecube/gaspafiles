@@ -55,7 +55,6 @@ in {
         clip = "xclip -sel clip";
         gac = "git add . && git commit -m";
         ls = "exa";
-        cat = "bat";
       };
     };
 

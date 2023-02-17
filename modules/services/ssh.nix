@@ -2,7 +2,7 @@
 #
 # SSH configuration
 
-{ config, options, lib, pkgs, nixosConfigurations, ... }:
+{ config, options, lib, pkgs, sshKeys, ... }:
 
 with lib;
 let cfg = config.modules.services.ssh; in
@@ -65,11 +65,8 @@ let cfg = config.modules.services.ssh; in
       services.openssh = {
         enable = true;
         passwordAuthentication = false;
-        permitRootLogin = "no";
-        hostKeys = [{
-          path = "/etc/ssh/ssh_host_ed25519_key";
-          type = "ed25519";
-        }];
+        authorizedKeysFiles = lib.mkForce [ "/etc/ssh/authorized_keys.d/%u" ];
+        kbdInteractiveAuthentication = false;
       };
 
       programs.ssh = {
@@ -93,7 +90,7 @@ let cfg = config.modules.services.ssh; in
       };
     }
     (mkIf cfg.manageKnownHosts.enable {
-      programs.ssh.knownHosts = mapAttrs (_: v: { publicKey = v; }) (cfg.allHosts // cfg.manageKnownHosts.extraHosts);
+      programs.ssh.knownHosts = mapAttrs (_: v: { publicKey = v; }) (sshKeys // cfg.manageKnownHosts.extraHosts);
       programs.ssh.extraConfig = concatMapStringsSep "\n"
         (host: ''
           Host ${host}
@@ -101,7 +98,7 @@ let cfg = config.modules.services.ssh; in
             ${optionalString (config.networking.domain != null) "HostName ${host}.${config.networking.domain}"}
             ${optionalString cfg.allowSSHAgentAuth "ForwardAgent yes"}
         '')
-        (attrNames cfg.allHosts);
+        (attrNames sshKeys);
     })
     (mkIf cfg.allowSSHAgentAuth {
       security = {
