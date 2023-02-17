@@ -26,6 +26,7 @@ in {
     users.mutableUsers = false;
 
     usr = {
+      name = user;
       isNormalUser = true;
       createHome = true;
       hashedPassword = "$y$j9T$2wDkcLN6AlpFD4P1WX0zU0$FLDV6SZb/7ZHl3lKzlEE3D2qyVr3p/gJhuwKQ7w95V0";

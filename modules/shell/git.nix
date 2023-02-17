@@ -4,21 +4,39 @@
 
 { lib, config, configDir, ... }:
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkOption mkIf types;
   cfg = config.modules.shell.git;
 in {
-  options.modules.shell.git.enable = mkEnableOption "git";
+  options.modules.shell.git = {
+    enable = mkEnableOption "git";
+    commits = {
+      name = mkOption {
+        type = types.str;
+        default = "Diogo Gaspar";
+      };
+      email = mkOption {
+        type = types.str;
+        default = "diogo@gaspa.pt";
+      };
+      signingkey = mkOption {
+        type = types.nullOr types.str;
+        default = if config.modules.services.ssh.enable then config.modules.services.ssh.user.key else null;
+      };
+    };
+  };
 
   config.hm = mkIf cfg.enable {
     programs.git = {
       enable = true;
-      userName = "Diogo Gaspar";
-      userEmail = "diogo@gaspa.pt";
       extraConfig = {
-        diff.tool = "vimdiff";
         init.defaultBranch = "master";
+        url."git@github.com:".insteadOf = "https://github.com/";
+        user = {
+          name = cfg.commits.name;
+          email = cfg.commits.email;
+        };
+        diff.tool = "vimdiff";
         pull.rebase = true;
-        url."git@github.com:".pushinsteadOf = "https://github.com/";
         commit.template = "${configDir}/gitmessage.txt";
         commit.verbose = true;
       };

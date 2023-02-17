@@ -60,9 +60,9 @@ in {
     ];
 
     # SSH stuff
-    programs.ssh = {
-      startAgent = true;
-    };
+    # programs.ssh = {
+    #   startAgent = true;
+    # };
   };
 }
 

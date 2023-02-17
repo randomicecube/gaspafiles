@@ -98,6 +98,7 @@
     graphical.sxhkd.enable = true;
     graphical.zathura.enable = true;
     personal.enable = true;
+    services.ssh.enable = true;
     shell = {
       git.enable = true;
       zsh.enable = true;
