@@ -92,6 +92,7 @@
     graphical.sxhkd.enable = true;
     graphical.zathura.enable = true;
     personalk.enable = true;
+    services.gpg.enable = true;
     services.ssh.enable = true;
     shell = {
       git.enable = true;
