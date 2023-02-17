@@ -47,11 +47,10 @@ in {
           email = "diogo.marques.gaspar@tecnico.ulisboa.pt";
         };
       }];
-      signByDefault = true;
     };
   }
   (mkIf (cfg.commits.signingkey != null) {
-    config = {
+    extraConfig = {
       commit.gpgSign = true;
       gpg.format = "ssh";
       user.signingkey = cfg.commits.signingkey;
