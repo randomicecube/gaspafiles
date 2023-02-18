@@ -44,7 +44,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij gaspa@murray"
       ];
       # for signing git commits
-      allowedSigners = builtins.concatStringsSep"\n*" sshKeys;
+      allowedSigners = builtins.concatStringsSep"\n" (map (key: "* ${key}") sshKeys);
 
       colors = {
         # adapted from RageKnify's
