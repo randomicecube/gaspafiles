@@ -58,11 +58,6 @@ in {
       gutenprint
       gutenprintBin
     ];
-
-    # SSH stuff
-    # programs.ssh = {
-    #   startAgent = true;
-    # };
   };
 }
 

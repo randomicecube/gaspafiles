@@ -57,6 +57,7 @@ in {
       };
       extraConfig = {
         gpg.format = "ssh";
+        commit.gpgsign = true;
       };
     };
   })
