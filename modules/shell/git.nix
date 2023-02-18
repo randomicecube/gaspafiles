@@ -1,6 +1,7 @@
 # modules/shell/git.nix
 #
 # Git configuration. (Based on RageKnify's + luishfonseca's)
+# Reference for signing commits: https://jeppesen.io/git-commit-sign-nix-home-manager-ssh/
 
 { lib, config, configDir, ... }:
 let
@@ -57,7 +58,7 @@ in {
       };
       extraConfig = {
         gpg.format = "ssh";
-        commit.gpgsign = true;
+        gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
       };
     };
   })

@@ -2,7 +2,7 @@
 
 # Configuration for murray ("practice" VM)
 
-{ pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, allowedSigners, config, hostSecretsDir, user, ... }: {
   # Boot stuff
   boot = {
     loader = {
@@ -96,7 +96,7 @@
         # host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
         host.key = "/etc/ssh/ssh_host_ed25519_key.pub";
         # user.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij";
-        user.key = "/home/gaspa/.ssh/id_ed25519.pub";
+        user.key = "~/.ssh/id_ed25519.pub";
         allowSSHAgentAuth = true;
         # manageKnownHosts.enable = true;
       };
@@ -107,6 +107,8 @@
     };
     xdg.enable = true;
   };
+
+  hm.home.file.".ssh/allowed_signers".text = allowedSigners;
 
   hm.home.packages = with pkgs;
     [

@@ -41,7 +41,11 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPXnaZy4Pk+3qL6dx4iBnPCLTpGgf8yzhkPe1AcR+/K gaspa@sly"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgZUGgluhhI6Pg+LCp70WCy2YX12of8Cc6cO6JQJDzy gaspa@clockwerk"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF/4tWBjIa9ovRVWxHbOdiFcnLI+HsvEbFZFM4re+T/c gaspa@bentley"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij gaspa@murray"
       ];
+      # for signing git commits
+      allowedSigners = builtins.concatStringsSep"\n*" sshKeys;
+
       colors = {
         # adapted from RageKnify's
         dark = {
@@ -140,7 +144,7 @@
           value = inputs.nixpkgs.lib.nixosSystem {
             inherit system pkgs;
             specialArgs = {
-              inherit inputs user colors sshKeys agenixPackage secretsDir spicetifyPkgs;
+              inherit inputs user colors sshKeys allowedSigners agenixPackage secretsDir spicetifyPkgs;
               configDir = ./config;
               hostSecretsDir = "${secretsDir}/${name}";
               hostName = name;
