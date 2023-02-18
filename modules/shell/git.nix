@@ -51,10 +51,12 @@ in {
   }
   (mkIf (cfg.commits.signingkey != null) {
     config.programs.git = {
+      signing = {
+        key = cfg.commits.signingkey;
+        signByDefault = true;
+      };
       extraConfig = {
-        commit.gpgSign = true;
         gpg.format = "ssh";
-        user.signingkey = cfg.commits.signingkey;
       };
     };
   })

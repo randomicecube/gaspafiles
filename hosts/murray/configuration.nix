@@ -91,20 +91,19 @@
     personal.enable = true;
     services = {
       gpg.enable = true;
-      ssh.enable = true;
+      ssh = {
+        enable = true;
+        host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
+        user.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij";
+        allowSSHAgentAuth = true;
+        # manageKnownHosts.enable = true;
+      };
     };
     shell = {
       git.enable = true;
       zsh.enable = true;
     };
     xdg.enable = true;
-  };
-
-  modules.services.ssh = {
-    host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
-    user.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij";
-    allowSSHAgentAuth = true;
-    # manageKnownHosts.enable = true;
   };
 
   hm.home.packages = with pkgs;
