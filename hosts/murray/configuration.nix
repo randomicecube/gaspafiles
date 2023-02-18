@@ -108,7 +108,7 @@
     xdg.enable = true;
   };
 
-  hm.home.file.".ssh/allowed_signers".text = allowedSigners;
+  hm.home.file.".ssh/allowed_signers".text = "${allowedSigners}";
 
   hm.home.packages = with pkgs;
     [
