@@ -21,10 +21,12 @@ in
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      # TODO: laptop only
       libinput = {
         enable = true;
-        touchpad.naturalScrolling = true;
+        touchpad = {
+          naturalScrolling = true;
+          tapping = true;
+        };
       };
       layout = "pt";
       displayManager = {
@@ -36,6 +38,7 @@ in
           {
             name = "user-xsession";
             manage = "desktop";
+            bgSupport = true; # allows for the random background service to work
             start = ''
             exec $HOME/.xsession
             '';
@@ -240,7 +243,8 @@ in
         enableXinerama = true;
         display = "fill";
         # the wallpapers directory contains more folders with different wallpaper themes
-        imageDirectory = "${configDir}/utils/wallpapers/mandelbrot";
+        # FIXME: un-hardcode this
+        imageDirectory = "%h/gaspafiles/config/utils/wallpapers/mandelbrot/";
         interval = "30m";
       };
     };
