@@ -34,6 +34,7 @@ in
       noto-fonts-cjk-sans
       noto-fonts-emoji
       noto-fonts-extra
+      meslo-lgs-nf
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
 

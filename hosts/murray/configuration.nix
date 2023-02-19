@@ -83,6 +83,7 @@
       i3.enable = true;
       polybar.enable = true;
       programs.enable = true;
+      qt.enable = true;
       rofi.enable = true;
       spotify.enable = true;
       sxhkd.enable = true;
@@ -90,7 +91,6 @@
     };
     personal.enable = true;
     services = {
-      gpg.enable = true;
       ssh = {
         enable = true;
         # host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
