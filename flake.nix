@@ -9,7 +9,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-latest.url = "github:nixos/nixpkgs/master";
-    impermanence.url = "github:nix-community/impermanence/master";
     riff = {
       url = "github:DeterminateSystems/riff/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -161,7 +160,6 @@
                   sharedModules = [ inputs.spicetify-nix.homeManagerModule ];
                 };
               }
-              inputs.impermanence.nixosModules.impermanence
               # inputs.agenix.nixosModules.age
             ] ++ allModules;
           };

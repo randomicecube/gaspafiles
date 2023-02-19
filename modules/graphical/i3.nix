@@ -216,7 +216,7 @@ in
       };
 
       services.picom = {
-        enable = false;
+        enable = false; # currently broken?
         vSync = true;
         backend = "glx";
       };

@@ -30,20 +30,6 @@
 
   zramSwap.enable = true;
 
-  # environment.persistence."/persist" = {
-  #   directories = [
-  #     "/etc/NetworkManager/system-connections"
-  #     "/var/lib/docker"
-  #     "/var/lib/libvirt"
-  #     "/var/log"
-  #   ];
-  #   files = [
-  #     "/etc/machine-id"
-  #     "/etc/ssh/ssh_host_ed25519_key"
-  #     "/etc/ssh/ssh_host_ed25519_key.pub"
-  #   ];
-  # };
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -62,7 +48,7 @@
   #     bacchusNebulaKey.file = "${hostSecretsDir}/nebulaKey.age";
   #   };
 
-  #   identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+  #   identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   # };
 
   # modules.nebula = {
