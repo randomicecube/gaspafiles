@@ -27,6 +27,7 @@
 
   networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
   networking.hostId = "ea68da8f";
+  networking.networkmanager.enable = true;
 
   zramSwap.enable = true;
 

@@ -188,11 +188,11 @@ in
             bars = [];
 
             startup = [
-              { command = "nm-applet"; notification = false; }
               {
                 command = "${pkgs.systemd}/bin/systemctl --user start graphical-session-i3.target";
                 notification = false;
               }
+              { command = "nm-applet"; notification = false; }
               { command = "clipit &"; notification = false; }
               { command = "discord"; notification = false; }
               { command = "spotify"; notification = false; }

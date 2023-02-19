@@ -1,4 +1,4 @@
-# modules/raphical/spotify.nix
+# modules/graphical/spotify.nix
 #
 # Spotify configuration and themeing with Spicetify
 
