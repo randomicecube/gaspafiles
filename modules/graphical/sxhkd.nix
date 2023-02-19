@@ -21,8 +21,9 @@ in
         "${sxhkdMod}+p"         = "rofi -show drun";
         "${sxhkdMod}+c"         = "rofi -show calc -modi calc -no-show-match -no-sort";
         "${sxhkdMod}+i"         = "rofi -show power-menu -modi power-menu:rofi-power-menu";
-        
+
         "${sxhkdMod}+Print"     = "flameshot gui";
+        "${sxhkdMod}+Delete"    = "flameshot gui";
 
         "${sxhkdMod}+x"         = "${configDir}/utils/scripts/lock.sh";
 
