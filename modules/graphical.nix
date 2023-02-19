@@ -65,7 +65,7 @@ in
       brave
       libreoffice
       zathura
-      gnome.nautilus
+      xfce.thunar
     ];
 
     services.gnome.gnome-keyring.enable = true;
