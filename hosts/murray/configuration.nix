@@ -17,7 +17,8 @@
       };
     };
     supportedFilesystems = [ "zfs" ];
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxPackages_xanmod;
     kernelParams = [ "nohibernate" ];
     tmpOnTmpfs = true;
     tmpOnTmpfsSize = "80%";
@@ -93,9 +94,7 @@
     services = {
       ssh = {
         enable = true;
-        # host.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjTbKMa1jh2AfcA5WUMrm+SfLHqsbpYzSV5QpdmxVew";
         host.key = "/etc/ssh/ssh_host_ed25519_key.pub";
-        # user.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij";
         user.key = "~/.ssh/id_ed25519.pub";
         allowSSHAgentAuth = true;
         # manageKnownHosts.enable = true;
