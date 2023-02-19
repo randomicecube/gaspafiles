@@ -66,6 +66,7 @@ in
       libreoffice
       zathura
       xfce.thunar
+      evince
     ];
 
     services.gnome.gnome-keyring.enable = true;
