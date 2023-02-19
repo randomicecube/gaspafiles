@@ -207,6 +207,7 @@ in
           };
           extraConfig = ''
             for_window [class="Spotify"] move to workspace 3
+            for_window [class="Pavucontrol"] floating enable
           '';
         };
       };
@@ -244,7 +245,7 @@ in
         display = "fill";
         # the wallpapers directory contains more folders with different wallpaper themes
         # FIXME: un-hardcode this
-        imageDirectory = "%h/gaspafiles/config/utils/wallpapers/mandelbrot/";
+        imageDirectory = "%h/gaspafiles/modules/graphical/wallpapers/mandelbrot/";
         interval = "30m";
       };
     };
