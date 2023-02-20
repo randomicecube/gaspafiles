@@ -2,10 +2,10 @@
 
 My Linux configurations, for machines running NixOS. Inspired by the work of:
 
-- @RageKnify
-- @diogotcorreia
-- @luishfonseca
-- @carjorvaz
+- [@RageKnify](https://github.com/RageKnify)
+- [@diogotcorreia](https://github.com/diogotcorreia)
+- [@luishfonseca](https://github.com/luishfonseca)
+- [@carjorvaz](https://github.com/carjorvaz)
 
 Since I'm using flakes, the build process should be done via `nixos-rebuild switch --flake /path/to/flake.nix`.
 
