@@ -25,6 +25,11 @@ in {
       gnumake
     ];
 
+    hm.programs.git.ignores = [
+      ".envrc"
+      ".direnv"
+    ];
+
     hm.programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
