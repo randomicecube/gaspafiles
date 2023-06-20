@@ -2,7 +2,7 @@
 
 # Configuration for bentley (laptop)
 
-{ pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, allowedSigners, config, hostSecretsDir, user, ... }: {
   # Boot stuff
   boot = {
     loader = {
@@ -17,7 +17,7 @@
       };
     };
     supportedFilesystems = [ "zfs" ];
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate" ];
     tmpOnTmpfs = true;
     tmpOnTmpfsSize = "80%";
@@ -25,17 +25,10 @@
   };
 
   networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
-  networking.hostId = "ea68da8f";
+  networking.hostId = "988e8aaa";
   networking.networkmanager.enable = true;
 
   zramSwap.enable = true;
-
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-    authorizedKeysFiles = lib.mkForce [ "/etc/ssh/authorized_keys.d/%u" ];
-    kbdInteractiveAuthentication = false;
-  };
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -72,21 +65,33 @@
 
   # Home config
   modules = {
-    editors.neovim.enable = true;
-    graphical.enable = true;
-    graphical.alacritty.enable = true;
-    graphical.dev.enable = true;
-    graphical.gtk.enable = true;
-    graphical.i3.enable = true;
-    graphical.polybar.enable = true;
-    graphical.programs.enable = true;
-    graphical.rofi.enable = true;
-    graphical.spotify.enable = true;
-    graphical.sxhkd.enable = true;
-    graphical.zathura.enable = true;
+    editors = {
+      neovim.enable = true;
+    };
+    graphical = {
+      enable = true;
+      alacritty.enable = true;
+      dev.enable = true;
+      gtk.enable = true;
+      i3.enable = true;
+      polybar.enable = true;
+      programs.enable = true;
+      qt.enable = true;
+      rofi.enable = true;
+      spotify.enable = true;
+      sxhkd.enable = true;
+      zathura.enable = true;
+    };
     personal.enable = true;
-    services.gpg.enable = true;
-    services.ssh.enable = true;
+    services = {
+      ssh = {
+        enable = true;
+        host.key = "/etc/ssh/ssh_host_ed25519_key.pub";
+        user.key = "~/.ssh/id_ed25519.pub";
+        allowSSHAgentAuth = true;
+        # manageKnownHosts.enable = true;
+      };
+    };
     shell = {
       git.enable = true;
       zsh.enable = true;
@@ -94,10 +99,12 @@
     xdg.enable = true;
   };
 
+  hm.home.file.".ssh/allowed_signers".text = "${allowedSigners}";
+
   hm.home.packages = with pkgs;
     [
       # Add packages here.
     ];
   
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 }
