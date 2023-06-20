@@ -68,6 +68,7 @@ in
       zathura
       xfce.thunar
       evince
+      xournalpp
     ];
 
     services.gnome.gnome-keyring.enable = true;
