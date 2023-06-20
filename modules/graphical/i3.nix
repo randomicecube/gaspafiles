@@ -196,7 +196,7 @@ in
                 notification = false;
               }
               { command = "nm-applet"; notification = false; }
-              { command = "clipit &"; notification = false; }
+              { command = "greenclip daemon"; notification = false; }
               { command = "discord"; notification = false; }
               { command = "spotify"; notification = false; }
               { command = "thunderbird"; notification = false; }

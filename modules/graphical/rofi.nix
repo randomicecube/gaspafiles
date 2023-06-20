@@ -16,6 +16,7 @@ in
       enable = true;
       plugins = with pkgs; [
         pkgs.rofi-calc
+        # TODO: add rofi-wifi-menu whenever available
       ];
       font = "JetBrainsMono Nerd Font Bold 12";
       extraConfig = {
@@ -36,9 +37,9 @@ in
         "*" = with colors.dark; {
           al = mkLiteral "#00000000";
           bg = mkLiteral "${base00}ff";
-          fg = mkLiteral "${base05}ff";
-          se = mkLiteral "${base02}ff";
-          ac = mkLiteral "${base09}ff";
+          fg = mkLiteral "${base07}ff";
+          se = mkLiteral "${base04}ff";
+          ac = mkLiteral "${base04}ff";
         };
         window = {
           transparency = "real";
@@ -46,7 +47,6 @@ in
           text-color = mkLiteral "@fg";
           border = mkLiteral "0px";
           border-color = mkLiteral "@ac";
-          border-radius = mkLiteral "12px";
           width = mkLiteral "35%";
           location = mkLiteral "center";
           x-offset = 0;

@@ -55,10 +55,11 @@ in
       xcape
 
       pavucontrol
-      clipit
       polkit_gnome
       i3lock-color
       rofi-power-menu
+      rofi-bluetooth
+      haskellPackages.greenclip
 
       feh
       firefox
