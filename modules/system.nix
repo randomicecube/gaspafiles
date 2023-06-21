@@ -56,6 +56,11 @@ in {
     SystemMaxUse=500M
   '';
 
+  # make zsh a login shell so that lightdm doesn't discriminate
+  environment.shells = [ pkgs.zsh ];
+  # necessary for completions to work
+  programs.zsh.enable = true;
+
   # dedup equal pages
   hardware.ksm = {
     enable = true;
