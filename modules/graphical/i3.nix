@@ -195,6 +195,7 @@ in
                 command = "${pkgs.systemd}/bin/systemctl --user start graphical-session-i3.target";
                 notification = false;
               }
+              { command = "${configDir}/utils/scripts/home-layout.sh"; notification = false;  }
               { command = "nm-applet"; notification = false; }
               { command = "greenclip daemon"; notification = false; }
               { command = "discord"; notification = false; }
