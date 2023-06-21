@@ -41,6 +41,7 @@ in
           radius = 0;
           fixed-center = true;
           monitor-strict = true;
+          monitor = "\${env:MONITOR:}";
           background = "\${colors.bg}";
           foreground = "\${colors.fg}";
           border-size  = 1;
