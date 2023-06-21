@@ -62,6 +62,7 @@ in
       rofi-bluetooth
       haskellPackages.greenclip
 
+      arandr
       feh
       firefox
       brave
