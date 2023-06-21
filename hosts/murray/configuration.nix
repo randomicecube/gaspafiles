@@ -10,26 +10,19 @@
         enable = true;
         editor = false;
         configurationLimit = 10;
+				timeout = 2;
       };
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
       };
     };
-    supportedFilesystems = [ "zfs" ];
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelPackages = pkgs.linuxPackages_xanmod;
     kernelParams = [ "nohibernate" ];
-    tmpOnTmpfs = true;
-    tmpOnTmpfsSize = "80%";
-    cleanTmpDir = true;
   };
 
   networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
   networking.hostId = "ea68da8f";
   networking.networkmanager.enable = true;
-
-  zramSwap.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
