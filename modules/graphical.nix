@@ -25,6 +25,7 @@ in
 
     # Required for gtk. (copied from RiscadoA)
     services.dbus.packages = [ pkgs.dconf ];
+    programs.dconf.enable = true;
 
     fonts.fonts = with pkgs; [
       fira-code

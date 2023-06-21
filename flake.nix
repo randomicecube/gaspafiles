@@ -19,11 +19,11 @@
     };
     agenix = {
       url = "github:ryantm/agenix/main";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nvim-osc52 = {
       url = "github:ojroques/nvim-osc52/main";
@@ -39,7 +39,7 @@
       sshKeys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPXnaZy4Pk+3qL6dx4iBnPCLTpGgf8yzhkPe1AcR+/K gaspa@sly"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFgZUGgluhhI6Pg+LCp70WCy2YX12of8Cc6cO6JQJDzy gaspa@clockwerk"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF/4tWBjIa9ovRVWxHbOdiFcnLI+HsvEbFZFM4re+T/c gaspa@bentley"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2XabbFMuMGrsHJRhj/91KlrFNWSgnSn5qNfufzqHeA gaspa@bentley"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBERhm3T9/a1UjVeG+HQWaa6BR/pV3S/NUG8cKM78Ij gaspa@murray"
       ];
       # for signing git commits

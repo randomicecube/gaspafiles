@@ -15,6 +15,7 @@
         canTouchEfiVariables = true;
       };
     };
+    kernelPackages = pkgs.linuxPackages_xanmod;
     kernelParams = [ "nohibernate" ];
   };
 
