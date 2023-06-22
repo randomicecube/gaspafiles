@@ -171,7 +171,7 @@ let
       config = ''
         " colorscheme settings
         set background=dark
-        colorscheme base16-nord
+        colorscheme base16-rose-pine-moon
       '';
     }
 
