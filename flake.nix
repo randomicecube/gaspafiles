@@ -160,7 +160,7 @@
                   sharedModules = [ inputs.spicetify-nix.homeManagerModule ];
                 };
               }
-              # inputs.agenix.nixosModules.age
+              inputs.agenix.nixosModules.age
             ] ++ allModules;
           };
         }) (attrNames (readDir dir)));

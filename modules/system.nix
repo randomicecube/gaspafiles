@@ -2,7 +2,7 @@
 #
 # System config common across all hosts
 
-{ inputs, pkgs, lib, config, configDir, ... }:
+{ inputs, pkgs, lib, config, configDir, agenixPackage, ... }:
 let
   inherit (builtins) toString;
   inherit (lib.my) mapModules;
@@ -44,8 +44,9 @@ in {
     gdu
     duf
     tree
-    # agenixPackage
+    agenixPackage
     gparted
+    wol
   ];
 
   # Every host shares the same time zone.

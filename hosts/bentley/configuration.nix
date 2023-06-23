@@ -41,20 +41,13 @@
   # virtualisation.libvirtd.enable = true;
 
   # Secret manager
-  # age = {
-  #   secrets = {
-  #     bacchusNebulaCert.file = "${hostSecretsDir}/nebulaCert.age";
-  #     bacchusNebulaKey.file = "${hostSecretsDir}/nebulaKey.age";
-  #   };
+  age = {
+    secrets = {
+      # slyMac.file = "${hostSecretsDir}/slyMac.age";
+    };
 
-  #   identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  # };
-
-  # modules.nebula = {
-  #   enable = true;
-  #   cert = config.age.secrets.bentleyNebulaCert.path;
-  #   key = config.age.secrets.bentleyNebulaKey.path;
-  # };
+    identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  };
 
   # Home config
   modules = {
