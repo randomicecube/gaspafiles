@@ -25,9 +25,8 @@ in
         "${sxhkdMod}+Shift+b"   = "rofi-bluetooth";
         # TODO: whenever available, add rofi-wifi-menu
 
-        "${sxhkdMod}+Print"     = "flameshot gui";
-        "${sxhkdMod}+Delete"    = "flameshot gui";
-
+        "Print"                 = "flameshot gui";
+        "${sxhkdMod}+Delete"    = "flameshot gui"; # mech keeb doesn't have print key
         "${sxhkdMod}+x"         = "${configDir}/utils/scripts/lock.sh";
 
         # reloads polybar, useful for when tray bugs out
