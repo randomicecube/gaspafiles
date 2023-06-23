@@ -2,7 +2,7 @@
 
 # Configuration for bentley (laptop)
 
-{ pkgs, lib, sshKeys, allowedSigners, config, hostSecretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, allowedSigners, config, secretsDir, user, ... }: {
   # Boot stuff
   boot = {
     loader = {
@@ -43,7 +43,7 @@
   # Secret manager
   age = {
     secrets = {
-      # slyMac.file = "${hostSecretsDir}/slyMac.age";
+      slyMachineAddress.file = "${secretsDir}/slyMachineAddress.age";
     };
 
     identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
