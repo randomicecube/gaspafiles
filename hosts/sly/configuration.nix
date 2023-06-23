@@ -2,7 +2,9 @@
 
 # Configuration for sly (personal desktop)
 
-{ pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, config, hostSecretsDir, user, profiles, ... }: {
+  imports = with profiles; [ common graphical.all ];
+
   # Boot stuff
   boot = {
     loader = {

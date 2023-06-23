@@ -2,7 +2,9 @@
 
 # Configuration for murray ("practice" VM)
 
-{ pkgs, lib, sshKeys, allowedSigners, config, hostSecretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, allowedSigners, config, hostSecretsDir, user, profiles, ... }: {
+  imports = with profiles; [ common graphical.all ];
+
   # Boot stuff
   boot = {
     loader = {

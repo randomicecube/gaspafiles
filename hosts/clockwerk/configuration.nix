@@ -2,7 +2,9 @@
 
 # Configuration for clockwerk (dsi desktop)
 
-{ pkgs, lib, sshKeys, config, hostSecretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, config, hostSecretsDir, user, profiles, ... }: {
+  imports = with profiles; [ common graphical.all graphical.laptop ];
+
   # Boot stuff
   boot = {
     loader = {

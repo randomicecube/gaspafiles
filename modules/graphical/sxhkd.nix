@@ -35,6 +35,9 @@ in
         # reloads polybar, useful for when tray bugs out
         "${sxhkdMod}+y"         = "${configDir}/utils/scripts/reload-polybar.sh";
 
+        # reloads monitor layout, useful for when a monitor's plugged in
+        "${sxhkdMod}+n"         = "${configDir}/utils/scripts/home-layout.sh";
+
         "XF86AudioMute"         = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioRaiseVolume"  = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume"  = "pactl set-sink-volume @DEFAULT_SINK@ -5%";

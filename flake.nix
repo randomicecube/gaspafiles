@@ -29,6 +29,15 @@
       url = "github:ojroques/nvim-osc52/main";
       flake = false;
     };
+    digga = {
+      url = "github:divnix/digga";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+        nixlib.follows = "nixpkgs";
+        home-manager.follows = "home";
+      };
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -134,7 +143,10 @@
           else if value == "regular" && hasSuffix ".nix" name then
             [ (import "${dir}/${name}") ]
           else
-            [ ]) (readDir dir)));
+            [ ]) (readDir dir)
+        ));
+      
+      profiles = inputs.digga.lib.rakeLeaves ./profiles;
 
       # Imports every host defined in a directory.
       mkHosts = dir:
@@ -143,7 +155,7 @@
           value = inputs.nixpkgs.lib.nixosSystem {
             inherit system pkgs;
             specialArgs = {
-              inherit inputs user colors sshKeys allowedSigners agenixPackage secretsDir spicetifyPkgs;
+              inherit inputs user colors profiles sshKeys allowedSigners agenixPackage secretsDir spicetifyPkgs;
               configDir = ./config;
               hostSecretsDir = "${secretsDir}/${name}";
               hostName = name;

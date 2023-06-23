@@ -2,7 +2,9 @@
 
 # Configuration for bentley (laptop)
 
-{ pkgs, lib, sshKeys, allowedSigners, config, secretsDir, user, ... }: {
+{ pkgs, lib, sshKeys, allowedSigners, config, secretsDir, user, profiles, ... }: {
+  imports = with profiles; [ common graphical.all graphical.laptop ];
+
   # Boot stuff
   boot = {
     loader = {
@@ -38,7 +40,7 @@
   services.tlp.enable = true;
 
   virtualisation.docker.enable = true;
-  # virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   # Secret manager
   age = {

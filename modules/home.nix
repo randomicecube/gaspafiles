@@ -31,7 +31,7 @@ in {
       createHome = true;
       hashedPassword = "$y$j9T$2wDkcLN6AlpFD4P1WX0zU0$FLDV6SZb/7ZHl3lKzlEE3D2qyVr3p/gJhuwKQ7w95V0";
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "video" "libvirtd" "docker" ];
     };
 
     # Home Manager needs a bit of information about you and the

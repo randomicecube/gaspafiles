@@ -1,11 +1,12 @@
-# modules/system.nix
+# profiles/common.nix
 #
 # System config common across all hosts
 
-{ inputs, pkgs, lib, config, configDir, agenixPackage, ... }:
+{ inputs, pkgs, lib, agenixPackage, config, profiles, ... }:
 let
   inherit (builtins) toString;
   inherit (lib.my) mapModules;
+  cfg = profiles.common;
 in {
   nix = {
     settings = {
@@ -49,7 +50,6 @@ in {
     wol
   ];
 
-  # Every host shares the same time zone.
   # TODO perhaps set this per host
   time.timeZone = "Europe/Lisbon";
 
