@@ -41,13 +41,22 @@ in {
         commit.template = "${configDir}/gitmessage.txt";
         commit.verbose = true;
       };
-      includes = [{
+      includes = [
+      {
         condition = "gitdir:~/dsi/|gitdir:~/tecas/";
         contents.user = {
           name = "Diogo Gaspar";
           email = "diogo.marques.gaspar@tecnico.ulisboa.pt";
         };
-      }];
+      }
+      {
+        condition = "gitdir:~/kth/";
+        contents.user = {
+          name = "Diogo Gaspar";
+          # TODO: add email whenever I have one
+        };
+      }
+      ];
     };
   }
   (mkIf (cfg.commits.signingkey != null) {
