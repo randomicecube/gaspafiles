@@ -147,6 +147,7 @@ in {
     xfce.thunar
     evince
     xournalpp
+    xf86_input_wacom
   ];
 
   services.gnome.gnome-keyring.enable = true;
