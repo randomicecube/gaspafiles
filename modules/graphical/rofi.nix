@@ -83,8 +83,8 @@ in
         listview = {
           background-color = mkLiteral "@al";
           padding = mkLiteral "10px";
-          columns = 4;
-          lines = 4;
+          columns = 3;
+          lines = 3;
           spacing = mkLiteral "0%";
           cycle = false;
           dynamic = true;
