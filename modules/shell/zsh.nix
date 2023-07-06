@@ -14,7 +14,7 @@ in {
       enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "docker-compose" ];
+        plugins = [ "git" "docker-compose" "nvm" ];
       };
       plugins = [
         {
@@ -44,7 +44,6 @@ in {
             sha256 = "0s1z3whzwli5452h2yzjzzj27pf1hd45g223yv0v6hgrip9f853r";
           };
         }
-        # TODO: add zsh-nvm
       ];
       # FIXME this isn't working correctly on neovim.nix
       initExtra = ''
