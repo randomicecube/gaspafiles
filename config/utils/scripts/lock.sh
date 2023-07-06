@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 greet="wassup"
-correct="yey!"
+correct="nice!"
 color="ffffff"
-wrong_pass="tentaste"
+wrong_pass="nice try"
 font="JetBrains Mono"
 
 i3lock-color \
@@ -43,3 +43,4 @@ i3lock-color \
   --wrong-text="$wrong_pass" \
   --wrong-color=$color \
   --color="20262e"
+
