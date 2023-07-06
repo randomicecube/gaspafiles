@@ -48,7 +48,9 @@ in
           border-color = "\${colors.black}";
           padding       = 2;
           module-margin = 1;
-          font-0 = "JetbrainsMono Nerd Font:style=Medium:size=10;2";
+          font-0 = "JetbrainsMono Nerd Font:size=10;2";
+          font-1 = "FontAwesome:size=10;2";
+          font-2 = "MaterialIcons:size=10;2";
           modules-left    = "i3";
           modules-center  = "time";
           modules-right   = "pulseaudio memory cpu temperature battery";
@@ -57,7 +59,7 @@ in
 
           tray-position = "right";
           tray-padding = 2;
-          tray-background = "\${bg}";
+          tray-background = "\${colors.bg}";
         };
         "module/i3" = {
           type = "internal/i3";
@@ -117,18 +119,18 @@ in
           label-volume-padding     = 1;
 
           format-muted-foreground     = "\${colors.red}";
-          format-muted-prefix         = "ﱝ";
+          format-muted-prefix         = "";
           format-muted-prefix-padding = 1;
           label-muted                 = "Muted";
           label-muted-padding         = "\${self.label-volume-padding}";
 
-          ramp-volume-0 = "奄";
-          ramp-volume-1 = "奄";
-          ramp-volume-2 = "奔";
-          ramp-volume-3 = "奔";
-          ramp-volume-4 = "墳";
-          ramp-volume-5 = "墳";
-          ramp-volume-6 = "墳";
+          ramp-volume-0 = "";
+          ramp-volume-1 = "";
+          ramp-volume-2 = "";
+          ramp-volume-3 = "";
+          ramp-volume-4 = "";
+          ramp-volume-5 = "";
+          ramp-volume-6 = "";
           ramp-volume-padding = "1";
         };
         "module/cpu" = {
@@ -150,57 +152,48 @@ in
         "module/battery" = {
           type = "internal/battery";
 
-          full-at = 99;
+          full-at = 100;
           battery = "BAT0";
           adapter = "AC";
 
           poll-interval = 2;
           time-format = "%H:%M";
 
-
           format-charging            = "<animation-charging><label-charging>";
           format-charging-foreground = "\${colors.blue}";
           label-charging             = "%percentage%%";
           label-charging-padding     = 1;
 
-          animation-charging-0 = "";
-          animation-charging-1 = "";
-          animation-charging-2 = "";
-          animation-charging-3 = "";
-          animation-charging-4 = "";
-          animation-charging-5 = "";
-          animation-charging-6 = "";
+          animation-charging-0 = "";
+          animation-charging-1 = "";
+          animation-charging-2 = "";
+          animation-charging-3 = "";
+          animation-charging-4 = "";
           animation-charging-padding   = 1;
           animation-charging-framerate = 750;
-
 
           format-discharging            = "<ramp-capacity><label-discharging>";
           format-discharging-foreground = "\${self.format-charging-foreground}";
           label-discharging             = "\${self.label-charging}";
           label-discharging-padding     = "\${self.label-charging-padding}";
 
-          ramp-capacity-0 = "";
-          ramp-capacity-1 = "";
-          ramp-capacity-2 = "";
-          ramp-capacity-3 = "";
-          ramp-capacity-4 = "";
-          ramp-capacity-5 = "";
-          ramp-capacity-6 = "";
-          ramp-capacity-7 = "";
-          ramp-capacity-8 = "";
-          ramp-capacity-9 = "";
+          ramp-capacity-0 = "";
+          ramp-capacity-1 = "";
+          ramp-capacity-2 = "";
+          ramp-capacity-3 = "";
+          ramp-capacity-4 = "";
           ramp-capacity-padding = 1;
 
           format-full                = "<label-full>";
           format-full-foreground     = "\${self.format-charging-foreground}";
-          format-full-prefix         = "";
+          format-full-prefix         = "";
           format-full-prefix-padding = 1;
           label-full                 = "\${self.label-charging}";
           label-full-padding         = "\${self.label-charging-padding}";
         };
         "module/temperature" = {
           type = "internal/temperature";
-          thermal-zone = 1; # in some systems, this may be 0
+          thermal-zone = 1; # in some systems, this may be either 0 or 1
           warn-temperature = 70;
 
           format = "<label>";
@@ -213,13 +206,12 @@ in
 
           label = "%temperature-c%";
           label-warn = "%temperature-c%";
-          label-warn-foreground = "\${colors.secondary}";
+          label-warn-foreground = "\${colors.yellow}";
 
           ramp-0 = "";
           ramp-1 = "";
           ramp-2 = "";
           ramp-foreground = "\${colors.foreground-alt}";
-
         };
         "settings" = {
           screenchange-reload = true;
