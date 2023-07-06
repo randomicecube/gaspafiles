@@ -8,7 +8,8 @@ let
 in {
   services.xserver = {
     enable = true;
-    layout = "pt";
+    layout = "us";
+    xkbVariant = "altgr-intl";
     displayManager = {
       defaultSession = "user-xsession";
       session = [
