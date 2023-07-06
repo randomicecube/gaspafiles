@@ -6,7 +6,7 @@
   description = "Nix configuration for PCs and servers.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-latest.url = "github:nixos/nixpkgs/master";
     riff = {
@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
@@ -145,7 +145,7 @@
           else
             [ ]) (readDir dir)
         ));
-      
+
       profiles = inputs.digga.lib.rakeLeaves ./profiles;
 
       # Imports every host defined in a directory.

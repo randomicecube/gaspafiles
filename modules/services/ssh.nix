@@ -47,9 +47,11 @@ let cfg = config.modules.services.ssh; in
 
       services.openssh = {
         enable = true;
-        passwordAuthentication = false;
         authorizedKeysFiles = lib.mkForce [ "/etc/ssh/authorized_keys.d/%u" ];
-        kbdInteractiveAuthentication = false;
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+        };
       };
 
       programs.ssh = {

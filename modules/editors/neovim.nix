@@ -232,13 +232,6 @@ let
                 on_attach(_, bufnr)
                 vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, {silent=true})
               end,
-              settings = {
-                ["rust-analyzer"] = {
-                  checkOnSave = {
-                    command = "clippy",
-                  },
-                },
-              },
             },
           })
           -- tex lsp setup

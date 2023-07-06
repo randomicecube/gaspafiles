@@ -230,7 +230,7 @@ in
         MONITOR=$m polybar --reload bar&
       done
       '';
-      package = (pkgs.polybar.override { i3GapsSupport = true; alsaSupport = true; pulseSupport = true; });
+      package = (pkgs.polybar.override { i3Support = true; alsaSupport = true; pulseSupport = true; });
     };
   };
 }
