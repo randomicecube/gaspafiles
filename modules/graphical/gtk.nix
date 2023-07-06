@@ -11,15 +11,15 @@ in
   options.modules.graphical.gtk.enable = mkEnableOption "gtk";
 
   config.hm = mkIf cfg.enable {
-    gtk.enable = true;
     gtk = {
+      enable = true;
       font = {
         name = "Fira-Code";
         size = 10;
       };
       theme = {
         package = pkgs.rose-pine-gtk-theme;
-        name = "Rose-Pine";
+        name = "rose-pine";
       };
       iconTheme = {
         package = pkgs.papirus-icon-theme;

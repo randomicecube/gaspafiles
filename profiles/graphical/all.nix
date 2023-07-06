@@ -30,7 +30,7 @@ in {
           enable = true;
           theme = {
             package = pkgs.rose-pine-gtk-theme;
-            name = "Rose-Pine";
+            name = "rose-pine";
           };
           iconTheme = {
             package = pkgs.papirus-icon-theme;
