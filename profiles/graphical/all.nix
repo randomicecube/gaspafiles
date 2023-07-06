@@ -92,10 +92,9 @@ in {
       enable = true;
       enableXinerama = true;
       display = "fill";
-      # the wallpapers directory contains more folders with different wallpaper themes
       # FIXME: un-hardcode this
-      imageDirectory = "%h/gaspafiles/modules/graphical/wallpapers/mandelbrot/";
-      interval = "30m";
+      imageDirectory = "%h/Documents/wallpapers/mandelbrot";
+      interval = "60m";
     };
   };
 
