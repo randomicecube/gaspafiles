@@ -50,6 +50,10 @@ in
               "${i3Mod}+Shift+Up"     = "move up";
               "${i3Mod}+Shift+Right"  = "move right";
 
+              # having containers within a tab (calhau18-style)
+              "${i3Mod}+w"            = "layout tabbed";
+              "${i3Mod}+t"            = "layout toggle split";
+
               "${i3Mod}+Shift+1" = "move container to workspace 1; workspace 1";
               "${i3Mod}+Shift+2" = "move container to workspace 2; workspace 2";
               "${i3Mod}+Shift+3" = "move container to workspace 3; workspace 3";
@@ -157,6 +161,8 @@ in
           extraConfig = ''
             for_window [class="Spotify"] move to workspace 3
             for_window [class="Pavucontrol"] floating enable
+            # removes title bars
+            for_window [class="^.*"] border pixel 1
           '';
         };
       };
