@@ -128,6 +128,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     xorg.xkbcomp
+    xorg.xmodmap
     xclip
     xcape
 

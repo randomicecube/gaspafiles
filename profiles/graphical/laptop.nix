@@ -2,10 +2,15 @@
 #
 # Laptop-specific graphical configurations.
 
-{ config, lib, profiles, ... }:
+{ config, lib, profiles, pkgs, ... }:
 let
   inherit (lib) mkIf;
   cfg = profiles.graphical.laptop;
+  customKeebLayout = pkgs.writeText "xkb-layout" ''
+    ! bentley's backslash key is broken, switching it to caps lock
+    clear lock
+    keycode 66 = backslash bar backslash bar notsign brokenbar notsign
+  '';
 in {
   services.xserver = {
     libinput = {
@@ -15,6 +20,7 @@ in {
         tapping = true;
       };
     };
+    displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${customKeebLayout}";
   };
 
   programs.light.enable = true;
