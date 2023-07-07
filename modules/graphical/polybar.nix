@@ -194,25 +194,24 @@ in
         };
         "module/temperature" = {
           type = "internal/temperature";
-          thermal-zone = 1; # in some systems, this may be either 0 or 1
-          warn-temperature = 70;
+          thermal-zone = "4";
+          warn-temperature = 60;
 
-          format = "<label>";
-          format-padding = 2;
-          format-prefix = "\" \"";
-          format-prefix-foreground = "\${colors.yellow}";
-          format-warn = "<label-warn>";
-          format-warn-prefix = "\" \"";
-          format-warn-prefix-foreground = "\${colors.red}";
+          format = "<ramp> <label>";
+          format-overline = "\${colors.yellow}";
+          format-warn = "<ramp> <label-warn>";
+          format-warn-overline = "\${self.format-overline}";
 
           label = "%temperature-c%";
           label-warn = "%temperature-c%";
-          label-warn-foreground = "\${colors.yellow}";
+          label-warn-foreground = "\${colors.red}";
 
-          ramp-0 = "";
-          ramp-1 = "";
-          ramp-2 = "";
-          ramp-foreground = "\${colors.foreground-alt}";
+          ramp-0 = "";
+          ramp-1 = "";
+          ramp-2 = "";
+          ramp-3 = "";
+          ramp-4 = "";
+          ramp-foreground = "\${colors.magenta}";
         };
         "settings" = {
           screenchange-reload = true;
