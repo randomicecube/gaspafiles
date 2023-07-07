@@ -22,7 +22,7 @@ in
         "${sxhkdMod}+c"         = "rofi -show calc -modi calc -no-show-match -no-sort";
         "${sxhkdMod}+i"         = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         "${sxhkdMod}+h"         = "rofi -modi 'clipboard:greenclip print' -show clipboard";
-        "${sxhkdMod}+Shift+b"   = "rofi-bluetooth";
+        "${sxhkdMod}+b"         = "rofi-bluetooth";
         # TODO: whenever available, add rofi-wifi-menu
 
         "Print"                 = "flameshot gui";
