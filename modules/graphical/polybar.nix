@@ -22,6 +22,7 @@ in
         colors = {
           bg      = "#181825";
           fg      = "#45475a";
+          trayBg  = "#232338";
           white   = "#cdd6f4";
           black   = "#1e1e2e";
           blue    = "#89b4fa";
@@ -59,7 +60,7 @@ in
 
           tray-position = "right";
           tray-padding = 2;
-          tray-background = "\${colors.bg}";
+          tray-background = "\${colors.trayBg}";
         };
         "module/i3" = {
           type = "internal/i3";
