@@ -118,7 +118,7 @@ in
           interval = 1;
           exec = "${configDir}/utils/scripts/timew.sh ${pkgs.timewarrior}/bin/timew";
           exec-if = true;
-          format = "<label>";
+          format = "<label> ";
           format-foreground = "\${colors.purple}";
         };
         "module/dunst-pause" = {
