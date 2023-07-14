@@ -13,9 +13,6 @@ in {
     hm.home.packages = with pkgs;[
       # calc
       libqalculate
-      # LaTeX
-      texlive.combined.scheme-full
-      texlab
       # Rust
       rustup
       #pkgs.unstable.rust-analyzer
