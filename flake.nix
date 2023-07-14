@@ -38,6 +38,7 @@
         home-manager.follows = "home";
       };
     };
+    mach-nix.url = "mach-nix";
   };
 
   outputs = inputs@{ self, ... }:
