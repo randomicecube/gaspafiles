@@ -38,6 +38,9 @@ in
         # reloads monitor layout, useful for when a monitor's plugged in
         "${sxhkdMod}+n"         = "${configDir}/utils/scripts/home-layout.sh";
 
+        # pauses dunst notification-display
+        "${sxhkdMod}+j"         = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
+
         "XF86AudioMute"         = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioRaiseVolume"  = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume"  = "pactl set-sink-volume @DEFAULT_SINK@ -5%";

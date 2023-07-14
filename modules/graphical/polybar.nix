@@ -55,7 +55,7 @@ in
           font-2 = "MaterialIcons:size=10;2";
           modules-left    = "i3";
           modules-center  = "time";
-          modules-right   = "timewarrior pulseaudio memory cpu temperature battery";
+          modules-right   = "timewarrior dunst-pause pulseaudio memory cpu temperature battery";
           wm-restack = "i3";
           cursor-click = "pointer";
 
@@ -120,6 +120,16 @@ in
           exec-if = true;
           format = "<label>";
           format-foreground = "\${colors.purple}";
+        };
+        "module/dunst-pause" = {
+          type = "custom/script";
+          label = "%output%";
+          tail = true;
+          interval = 1;
+          exec = "${configDir}/utils/scripts/dunst-pause.sh ${pkgs.dunst}/bin/dunstctl ${pkgs.dbus}/bin";
+          exec-if = true;
+          format = "<label> ";
+          format-foreground = "\${colors.yellow}";
         };
         "module/pulseaudio" = {
           type = "internal/pulseaudio";
