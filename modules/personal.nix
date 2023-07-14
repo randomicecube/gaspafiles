@@ -20,6 +20,8 @@ in {
       gcc
       # Make
       gnumake
+      # Time warrior (time tracker)
+      timewarrior
     ];
 
     hm.programs.git.ignores = [

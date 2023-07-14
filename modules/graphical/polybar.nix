@@ -31,6 +31,7 @@ in
           yellow  = "#f9e2af";
           cyan    = "#89dceb";
           magenta = "#eba0ac";
+          purple  = "#c8a2c8";
         };
         "global/wm" = {
           margin-top    = 1;
@@ -54,7 +55,7 @@ in
           font-2 = "MaterialIcons:size=10;2";
           modules-left    = "i3";
           modules-center  = "time";
-          modules-right   = "pulseaudio memory cpu temperature battery";
+          modules-right   = "timewarrior pulseaudio memory cpu temperature battery";
           wm-restack = "i3";
           cursor-click = "pointer";
 
@@ -109,6 +110,16 @@ in
           date = "%Y-%m-%d%";
           time = "%H:%M";
           label = "%date% | %time%";
+        };
+        "module/timewarrior" = {
+          type = "custom/script";
+          label = "%output%";
+          tail = true;
+          interval = 1;
+          exec = "${configDir}/utils/scripts/timew.sh ${pkgs.timewarrior}/bin/timew";
+          exec-if = true;
+          format = "<label>";
+          format-foreground = "\${colors.purple}";
         };
         "module/pulseaudio" = {
           type = "internal/pulseaudio";
