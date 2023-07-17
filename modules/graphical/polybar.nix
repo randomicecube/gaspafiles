@@ -43,7 +43,7 @@ in
           radius = 0;
           fixed-center = true;
           monitor-strict = true;
-          monitor = "\${env:MONITOR:}";
+          monitor = "\${env:MONITOR}";
           background = "\${colors.bg}";
           foreground = "\${colors.fg}";
           border-size  = 1;
@@ -273,9 +273,9 @@ in
         };
       };
       script = ''
-      for m in $(${pkgs.xorg.xrandr}/bin/xrandr --query | ${pkgs.gnugrep}/bin/grep " connected" | ${pkgs.coreutils}/bin/cut -d" " -f1); do
-        MONITOR=$m polybar --reload bar&
-      done
+        for m in $(${pkgs.xorg.xrandr}/bin/xrandr --query | ${pkgs.gnugrep}/bin/grep " connected" | ${pkgs.coreutils}/bin/cut -d" " -f1); do
+          MONITOR=$m polybar --reload bar&
+        done
       '';
       package = (pkgs.polybar.override { i3Support = true; alsaSupport = true; pulseSupport = true; });
     };
