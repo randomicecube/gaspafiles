@@ -13,8 +13,14 @@ in
   };
 
   config = mkIf cfg.enable {
-    # TODO: laptop only
-    programs.light.enable = true;
-    programs.nm-applet.enable = true;
+    hm.services.xscreensaver = {
+      enable = true;
+      settings = {
+        lock = true;
+        mode = "random";
+        timeout = "5";
+        cycle = "1";
+      };
+    };
   };
 }
