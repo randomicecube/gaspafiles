@@ -111,25 +111,59 @@ in
           time = "%H:%M";
           label = "%date% | %time%";
         };
-        "module/timewarrior" = {
-          type = "custom/script";
-          label = "%output%";
-          tail = true;
-          interval = 1;
-          exec = "${configDir}/utils/scripts/timew.sh ${pkgs.timewarrior}/bin/timew";
-          exec-if = true;
-          format = "<label> ";
-          format-foreground = "\${colors.purple}";
-        };
         "module/dunst-pause" = {
           type = "custom/script";
           label = "%output%";
           tail = true;
           interval = 1;
-          exec = "${configDir}/utils/scripts/dunst-pause.sh ${pkgs.dunst}/bin/dunstctl ${pkgs.dbus}/bin";
+          exec = pkgs.writeShellScript "sb-dunst-pause" ''
+            #!/usr/bin/env bash
+
+            # Module showing if dunst is paused and if so, how many notifications are pending
+            # Icon is ommited if not paused
+
+            DUNST=${pkgs.dunst}/bin/dunstctl
+            PATH=$PATH:${pkgs.dbus}/bin
+
+            OUT=""
+
+            if [ "$($DUNST is-paused)" = "true" ]; then
+              OUT="󰂛"
+              WAITING="$($DUNST count waiting)"
+              if [ $WAITING != 0 ]; then
+                OUT="$OUT ($WAITING)"
+              fi
+            fi
+
+            echo $OUT
+          '';
           exec-if = true;
           format = "<label> ";
           format-foreground = "\${colors.yellow}";
+        };
+        "module/timewarrior" = {
+          type = "custom/script";
+          label = "%output%";
+          tail = true;
+          interval = 1;
+          exec = pkgs.writeShellScript "sb-timew" ''
+            #!/usr/bin/env bash
+
+            # Prints whether or not there is current timetracking with timewarrior.
+            # Used in the polybar config
+
+            current_tracking="$(${pkgs.timewarrior}/bin/timew | ${pkgs.coreutils}/bin/head -n 1)"
+            if [ "$current_tracking" = "There is no active time tracking." ]; then
+              icon="󰚭 n/a"
+            else
+              icon="󱦟 $(echo $current_tracking | ${pkgs.coreutils}/bin/cut -c 10-)"
+            fi
+
+            echo $icon
+          '';
+          exec-if = true;
+          format = "<label> ";
+          format-foreground = "\${colors.purple}";
         };
         "module/pulseaudio" = {
           type = "internal/pulseaudio";
