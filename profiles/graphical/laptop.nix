@@ -23,6 +23,52 @@ in {
     displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${customKeebLayout}";
   };
 
+  services.autorandr = {
+    enable = true;
+    defaultTarget = "laptop-dual";
+    profiles = {
+      laptop = {
+        fingerprint = { "eDP-1" = "*"; };
+        config = {
+          eDP-1 = {
+            enable = true;
+            primary = true;
+            mode = "1920x1080";
+            position = "0x0";
+            rotate = "normal";
+          };
+        };
+      };
+      laptop-dual = {
+        fingerprint = {
+          "eDP-1" = "*";
+          "HDMI-1" = "*";
+        };
+        config = {
+          HDMI-1 = {
+            enable = true;
+            primary = false;
+            mode = "1920x1080";
+            position = "0x0";
+            rotate = "normal";
+          };
+          eDP-1 = {
+            enable = true;
+            primary = true;
+            mode = "1920x1080";
+            position = "0x1080";
+            rotate = "normal";
+          };
+        };
+      };
+    };
+    hooks = {
+      postswitch = {
+        "restart-polybar" = "systemctl --user restart polybar";
+      };
+    };
+  };
+
   programs.light.enable = true;
   programs.nm-applet.enable = true;
 }
