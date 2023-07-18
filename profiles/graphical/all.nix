@@ -143,7 +143,6 @@ in {
     xscreensaver
     feh
     firefox
-    brave
     libreoffice
     zathura
     xfce.thunar

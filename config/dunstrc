@@ -1,7 +1,6 @@
 [global]
 alignment = left
 bounce_freq = 0
-browser = brave -new-tab
 corner_radius = 2
 dmenu = rofi -dmenu -p dunst:
 follow = none
