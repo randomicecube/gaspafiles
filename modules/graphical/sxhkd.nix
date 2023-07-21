@@ -27,7 +27,7 @@ in
 
         "Print"                 = "flameshot gui";
         "${sxhkdMod}+Delete"    = "flameshot gui"; # mech keeb doesn't have print key
-        "${sxhkdMod}+x"         = "xscreensaver-command -lock";
+        "${sxhkdMod}+x"         = "${configDir}/utils/scripts/lock.sh";
 
         # WoL scripts
         "${sxhkdMod}+z"   = "${configDir}/utils/scripts/wol.sh ${config.age.secrets.slyMachineAddress.file} sly.gaspa.pt ${secretsDir}"; # wol sly

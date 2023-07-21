@@ -140,7 +140,6 @@ in {
     haskellPackages.greenclip
 
     arandr
-    xscreensaver
     feh
     firefox
     libreoffice
