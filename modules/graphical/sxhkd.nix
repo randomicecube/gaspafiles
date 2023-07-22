@@ -35,9 +35,6 @@ in
         # reloads polybar, useful for when tray bugs out
         "${sxhkdMod}+y"         = "${configDir}/utils/scripts/reload-polybar.sh";
 
-        # reloads monitor layout, useful for when a monitor's plugged in
-        "${sxhkdMod}+n"         = "${configDir}/utils/scripts/home-layout.sh";
-
         # pauses dunst notification-display
         "${sxhkdMod}+j"         = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
 

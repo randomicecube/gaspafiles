@@ -59,6 +59,7 @@
     graphical = {
       enable = true;
       alacritty.enable = true;
+      autorandr.enable = true;
       dev.enable = true;
       gtk.enable = true;
       i3.enable = true;
