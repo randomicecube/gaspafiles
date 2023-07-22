@@ -49,16 +49,6 @@ in
       };
     };
 
-    services.flameshot = {
-      enable = true;
-      settings = {
-        General = {
-          disabledTrayIcon = true;
-          showStartupLaunchMessage = false;
-        };
-      };
-    };
-
     # for access to pactl
     home.packages = [
       pkgs.pulseaudio
