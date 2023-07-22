@@ -18,7 +18,7 @@ in {
           manage = "desktop";
           bgSupport = true; # allows for the random background service to work
           start = ''
-          exec $HOME/.xsession
+            exec $HOME/.xsession
           '';
         }
       ];
