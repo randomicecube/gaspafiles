@@ -139,6 +139,8 @@ in {
     rofi-bluetooth
     haskellPackages.greenclip
 
+    obsidian
+
     arandr
     feh
     firefox
@@ -148,6 +150,13 @@ in {
     evince
     xournalpp
     xf86_input_wacom
+
+    unstable.zoom-us
+    obs-studio
+    gnome.cheese
+
+    jupyter
+    stremio
   ];
 
   services.gnome.gnome-keyring.enable = true;

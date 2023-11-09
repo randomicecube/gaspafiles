@@ -11,10 +11,6 @@ in {
 
   config.hm = mkIf cfg.enable {
     home.packages = [
-      # Jetbrains Gateway (remote development)
-      pkgs.unstable.jetbrains.gateway
-      # IntelliJ IDEA (Ultimate)
-      pkgs.unstable.jetbrains.idea-ultimate
       # Visual Studio Code
       pkgs.unstable.vscode
     ];

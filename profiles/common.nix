@@ -51,7 +51,7 @@ in {
   ];
 
   # TODO perhaps set this per host
-  time.timeZone = "Europe/Lisbon";
+  time.timeZone = "Europe/Stockholm";
 
   services.journald.extraConfig = ''
     SystemMaxUse=500M

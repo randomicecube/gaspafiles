@@ -12,7 +12,7 @@ in {
   config = mkIf cfg.enable {
     services.autorandr = {
       enable = true;
-      defaultTarget = "laptop-dual";
+      defaultTarget = "laptop-home";
       profiles = {
         laptop = {
           fingerprint = { "eDP-1" = "*"; };
@@ -26,7 +26,7 @@ in {
             };
           };
         };
-        laptop-dual = {
+        laptop-home = {
           fingerprint = {
             "eDP-1" = "*";
             "HDMI-1" = "*";
@@ -34,16 +34,16 @@ in {
           config = {
             HDMI-1 = {
               enable = true;
-              primary = false;
-              mode = "1920x1080";
+              primary = true;
+              mode = "3440x1440";
               position = "0x0";
               rotate = "normal";
             };
             eDP-1 = {
               enable = true;
-              primary = true;
+              primary = false;
               mode = "1920x1080";
-              position = "0x1080";
+              position = "180x1440";
               rotate = "normal";
             };
           };

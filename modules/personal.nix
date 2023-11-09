@@ -34,6 +34,24 @@ in {
       nix-direnv.enable = true;
     };
 
+    hm.programs.ssh = {
+      enable = true;
+      matchBlocks = {
+        repairnator = {
+          hostname = "130.237.222.185";
+          user = "diogo";
+        };
+        sly = {
+          hostname= "sly.gaspa.pt";
+          user = "gaspa";
+        };
+        clockwerk = {
+          hostname = "clockwerk.gaspa.pt";
+          user = "gaspa";
+        };
+      };
+    };
+
     # to login into Fenix with Kerberos, on Firefox's about:config
     # network.negotiate-auth.trusted-uris	= id.tecnico.ulisboa.pt
     krb5 =  {

@@ -36,6 +36,9 @@
   services.blueman.enable = config.hardware.bluetooth.enable;
   hardware.bluetooth.enable = true;
 
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+
   # Battery saver
   services.tlp.enable = true;
 
@@ -71,6 +74,7 @@
       sxhkd.enable = true;
       zathura.enable = true;
     };
+    ist.enable = true;
     personal.enable = true;
     services = {
       ssh = {
@@ -92,7 +96,7 @@
 
   hm.home.packages = with pkgs;
     [
-      # Add packages here.
+      virt-manager
     ];
 
   system.stateVersion = "23.05";

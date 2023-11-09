@@ -10,4 +10,7 @@ let
   users = [ bentleyUser clockwerkUser slyUser ];
 in {
   "slyMachineAddress.age".publicKeys = systems ++ users;
+  "open-ai.age".publicKeys = systems ++ users;
+  "hugging-face.age".publicKeys = systems ++ users;
+  "openvpnIstAuthUserPass.age".publicKeys = systems ++ users;
 }

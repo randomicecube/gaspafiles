@@ -14,8 +14,7 @@ in {
       discord-openasar
       gimp
       insomnia
-      obsidian
-      thunderbird
+      unstable.thunderbird
       vlc
     ];
 

@@ -322,6 +322,16 @@ let
               \}
         '';
       }
+      {
+        plugin = copilot-lua;
+        config = ''
+          require("copilot").setup({
+            panel = { enabled = false },
+          })
+        '';
+        type = "lua";
+      }
+      copilot-cmp
     ]
   else
     [ ];
@@ -336,6 +346,9 @@ in {
 
   # Home manager module
   config.hm = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      nodejs_20 # needed for copilot
+    ];
     programs.neovim = {
       package = pkgs.unstable.neovim-unwrapped;
       enable = true;
@@ -411,10 +424,6 @@ in {
         set splitbelow
         set splitright
 
-        set shiftwidth=4
-        set softtabstop=4
-        set tabstop=4
-
         " Show (relative) line numbers
         set number
         set relativenumber
@@ -476,6 +485,8 @@ in {
     home.file."${config.my.configHome}/nvim/after/ftplugin/cpp.vim".text =
       twoSpaceIndentConfig;
     home.file."${config.my.configHome}/nvim/after/ftplugin/tex.vim".text =
+      twoSpaceIndentConfig;
+    home.file."${config.my.configHome}/nvim/after/ftplugin/python.vim".text =
       twoSpaceIndentConfig;
 
     home.file."${config.my.configHome}/nvim/lua/generic_lsp.lua".text = ''

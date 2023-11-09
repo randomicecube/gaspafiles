@@ -53,7 +53,7 @@ in {
         condition = "gitdir:~/kth/";
         contents.user = {
           name = "Diogo Gaspar";
-          # TODO: add email whenever I have one
+          email = "dgaspar@kth.se";
         };
       }
       ];

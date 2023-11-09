@@ -107,7 +107,7 @@ in
           type = "internal/date";
           interval = 1;
           label-foreground = "\${colors.white}";
-          date = "%Y-%m-%d%";
+          date = "%Y-%m-%d (W%V)";
           time = "%H:%M";
           label = "%date% | %time%";
         };
