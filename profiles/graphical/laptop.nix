@@ -23,6 +23,9 @@ in {
     displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${customKeebLayout}";
   };
 
+  # Touch screen in firefox
+  environment.variables.MOZ_USE_XINPUT2 = "1";
+
   programs.light.enable = true;
   programs.nm-applet.enable = true;
 }
