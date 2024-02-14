@@ -41,6 +41,10 @@ in {
           hostname = "130.237.222.185";
           user = "diogo";
         };
+        galapagos = {
+          hostname = "20.56.68.206";
+          user = "diogo";
+        };
         sly = {
           hostname= "sly.gaspa.pt";
           user = "gaspa";
