@@ -139,7 +139,8 @@ in {
     rofi-bluetooth
     haskellPackages.greenclip
 
-    obsidian
+    #obsidian
+    google-chrome
 
     arandr
     feh
