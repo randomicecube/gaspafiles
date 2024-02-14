@@ -107,6 +107,8 @@
       system = "x86_64-linux";
       user = "gaspa";
 
+      permittedInsecurePackages = [ "electron-25.9.0" ];
+
       pkg-sets = final: prev:
         let
           args = {
