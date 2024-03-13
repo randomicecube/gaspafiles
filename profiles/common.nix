@@ -51,6 +51,7 @@ in {
   ];
 
   # TODO perhaps set this per host
+  #time.timeZone = "Europe/Lisbon"; # TODO: change to stockholm
   time.timeZone = "Europe/Stockholm";
 
   services.journald.extraConfig = ''
