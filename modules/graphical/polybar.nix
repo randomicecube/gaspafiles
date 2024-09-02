@@ -209,7 +209,7 @@ in
           type = "internal/battery";
 
           full-at = 100;
-          battery = "BAT0";
+          battery = "BAT1";
           adapter = "AC";
 
           poll-interval = 2;
