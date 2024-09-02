@@ -3,7 +3,7 @@
 # Configuration for bentley (laptop)
 
 { pkgs, lib, sshKeys, allowedSigners, config, secretsDir, user, profiles, ... }: {
-  imports = with profiles; [ common graphical.all graphical.laptop ];
+  imports = with profiles; [ common graphical.all graphical.laptop hardware.panasonic ];
 
   # Boot stuff
   boot = {
@@ -31,6 +31,12 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 
   services.blueman.enable = config.hardware.bluetooth.enable;

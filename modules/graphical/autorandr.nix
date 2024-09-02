@@ -12,7 +12,7 @@ in {
   config = mkIf cfg.enable {
     services.autorandr = {
       enable = true;
-      defaultTarget = "laptop-home";
+      defaultTarget = "laptop-sthlm";
       profiles = {
         laptop = {
           fingerprint = { "eDP-1" = "*"; };
@@ -20,19 +20,19 @@ in {
             eDP-1 = {
               enable = true;
               primary = true;
-              mode = "1920x1080";
+              mode = "1920x1200";
               position = "0x0";
               rotate = "normal";
             };
           };
         };
-        laptop-home = {
+        laptop-sthlm = {
           fingerprint = {
             "eDP-1" = "*";
-            "HDMI-1" = "*";
+            "DP-2" = "*";
           };
           config = {
-            HDMI-1 = {
+            DP-2 = {
               enable = true;
               primary = true;
               mode = "3440x1440";
@@ -42,8 +42,52 @@ in {
             eDP-1 = {
               enable = true;
               primary = false;
+              mode = "1920x1200";
+              position = "760x1440";
+              rotate = "normal";
+            };
+          };
+        };
+        laptop-lx = {
+          fingerprint = {
+            "eDP-1" = "*";
+            "HDMI-1" = "*";
+          };
+          config = {
+            HDMI-1 = {
+              enable = true;
+              primary = true;
               mode = "1920x1080";
-              position = "180x1440";
+              position = "0x0";
+              rotate = "normal";
+            };
+            eDP-1 = {
+              enable = true;
+              primary = false;
+              mode = "1920x1200";
+              position = "0x1080";
+              rotate = "normal";
+            };
+          };
+        };
+        laptop-ist = {
+          fingerprint = {
+            "eDP-1" = "*";
+            "DP-1" = "*";
+          };
+          config = {
+            DP-1 = {
+              enable = true;
+              primary = true;
+              mode = "3840x2160";
+              position = "0x0";
+              rotate = "normal";
+            };
+            eDP-1 = {
+              enable = true;
+              primary = false;
+              mode = "1920x1200";
+              position = "540x2160";
               rotate = "normal";
             };
           };
