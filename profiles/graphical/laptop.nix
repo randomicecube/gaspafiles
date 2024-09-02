@@ -14,7 +14,7 @@ let
 in {
   services.xserver = {
     libinput = {
-      enable = true;
+      enable = false;
       touchpad = {
         naturalScrolling = true;
         tapping = true;

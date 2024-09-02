@@ -27,6 +27,7 @@ in {
     hm.programs.git.ignores = [
       ".envrc"
       ".direnv"
+      ".devenv"
     ];
 
     hm.programs.direnv = {

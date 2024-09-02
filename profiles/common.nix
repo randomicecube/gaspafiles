@@ -48,6 +48,8 @@ in {
     agenixPackage
     gparted
     wol
+    cscope
+    universal-ctags
   ];
 
   # TODO perhaps set this per host

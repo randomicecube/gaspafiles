@@ -152,7 +152,7 @@ in {
     xournalpp
     xf86_input_wacom
 
-    unstable.zoom-us
+    zoom-us
     obs-studio
     gnome.cheese
 
