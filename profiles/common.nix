@@ -50,6 +50,7 @@ in {
     wol
     cscope
     universal-ctags
+    p7zip
   ];
 
   # TODO perhaps set this per host
