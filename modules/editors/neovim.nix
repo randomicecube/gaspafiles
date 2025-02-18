@@ -16,6 +16,7 @@ let
       markdown
       nix
       python
+      terraform
     ];
   personalGrammars = if personal then
     with pkgs.unstable.vimPlugins.nvim-treesitter.builtGrammars; [
