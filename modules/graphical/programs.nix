@@ -16,6 +16,7 @@ in {
       insomnia
       unstable.thunderbird
       vlc
+      zotero
     ];
 
     programs.gpg = {
