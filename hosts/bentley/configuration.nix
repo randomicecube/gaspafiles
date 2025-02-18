@@ -24,6 +24,12 @@
   networking.nameservers = [ "1.0.0.1" "1.1.1.1" ];
   networking.hostId = "988e8aaa";
   networking.networkmanager.enable = true;
+  networking.firewall.allowedUDPPorts = [1900 7359];
+  networking.firewall.allowedTCPPorts = [
+    8010 # VLC Chromecast
+    11470 # Stremio
+  ];
+  services.avahi.enable = true;
 
   security.rtkit.enable = true;
   # services.pipewire = {
