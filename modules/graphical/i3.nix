@@ -5,7 +5,7 @@
 # for reference, all available options can be found here:
 # https://nix-community.github.io/home-manager/options.html
 
-{ pkgs, config, lib, hostName, colors, configDir, ... }:
+{ pkgs, config, lib, colors, ... }:
 let
   inherit (lib) mkEnableOption mkOption mkIf mkForce types;
   cfg = config.modules.graphical.i3;
