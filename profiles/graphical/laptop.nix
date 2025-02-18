@@ -21,6 +21,7 @@ in {
       };
     };
     displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${customKeebLayout}";
+    displayManager.gdm.autoSuspend = false;
   };
 
   # Touch screen in firefox

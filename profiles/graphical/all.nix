@@ -6,39 +6,40 @@
 let
   cfg = profiles.graphical.all;
 in {
+  #services.displayManager.defaultSession = "user-xsession";
   services.xserver = {
     enable = true;
     layout = "us";
     xkbVariant = "altgr-intl";
     displayManager = {
-      defaultSession = "user-xsession";
+      #defaultSession = "user-xsession";
       session = [
         {
           name = "user-xsession";
           manage = "desktop";
-          bgSupport = true; # allows for the random background service to work
+          #bgSupport = true; # allows for the random background service to work
           start = ''
             exec $HOME/.xsession
           '';
         }
       ];
-      lightdm = {
-        enable = true;
-        extraConfig = ''
-          set logind-check-graphical=true
-        '';
-        greeters.gtk = {
-          enable = true;
-          theme = {
-            package = pkgs.rose-pine-gtk-theme;
-            name = "rose-pine";
-          };
-          iconTheme = {
-            package = pkgs.papirus-icon-theme;
-            name = "Papirus-Dark";
-          };
-        };
-      };
+      # lightdm = {
+      #   enable = true;
+      #   extraConfig = ''
+      #     set logind-check-graphical=true
+      #   '';
+      #   greeters.gtk = {
+      #     enable = true;
+      #     theme = {
+      #       package = pkgs.rose-pine-gtk-theme;
+      #       name = "rose-pine";
+      #     };
+      #     iconTheme = {
+      #       package = pkgs.papirus-icon-theme;
+      #       name = "Papirus-Dark";
+      #     };
+      #   };
+      # };
     };
   };
 
@@ -51,19 +52,26 @@ in {
     };
 
     services.redshift = {
-      enable = true;
+      enable = false;
       temperature = {
         day = 4000;
         night = 3000;
       };
-      # TODO: change this to stockholm ;-;
       latitude = 38.743;
       longitude = -9.195;
     };
 
-    systemd.user.targets.graphical-session-i3 = {
+    #systemd.user.targets.graphical-session-i3 = {
+    #  Unit = {
+    #    Description = "i3 X session";
+    #    BindsTo = [ "graphical-session.target" ];
+    #    Requisite = [ "graphical-session.target" ];
+    #  };
+    #};
+
+    systemd.user.targets.graphical-session-gnome = {
       Unit = {
-        Description = "i3 X session";
+        Description = "gnome X session";
         BindsTo = [ "graphical-session.target" ];
         Requisite = [ "graphical-session.target" ];
       };
@@ -90,7 +98,8 @@ in {
     xdg.configFile."dunst/dunstrc".source = "${configDir}/dunstrc";
 
     services.random-background = {
-      enable = true;
+      #enable = true;
+      enable = false;
       enableXinerama = true;
       display = "fill";
       # FIXME: un-hardcode this
@@ -115,14 +124,14 @@ in {
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  sound.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+  #sound.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   jack.enable = true;
+  # };
   # rtkit is optional but recommended
   security.rtkit.enable = true;
 
