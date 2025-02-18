@@ -145,10 +145,11 @@ in {
     polkit_gnome
     i3lock-color
     rofi-power-menu
+    bluetuith
     rofi-bluetooth
     haskellPackages.greenclip
 
-    #obsidian
+    obsidian
     google-chrome
 
     arandr
@@ -167,6 +168,7 @@ in {
 
     jupyter
     stremio
+    nomacs
   ];
 
   services.gnome.gnome-keyring.enable = true;
