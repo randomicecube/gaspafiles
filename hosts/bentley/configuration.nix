@@ -52,7 +52,7 @@
   hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
 
   # Battery saver
-  services.tlp.enable = true;
+  # services.tlp.enable = true;
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
