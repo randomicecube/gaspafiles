@@ -35,15 +35,16 @@ in {
             DP-2 = {
               enable = true;
               primary = true;
-              mode = "3440x1440";
+              mode = "1920x1080";
               position = "0x0";
               rotate = "normal";
+              rate = "144.0";
             };
             eDP-1 = {
               enable = true;
               primary = false;
               mode = "1920x1200";
-              position = "760x1440";
+              position = "0x1080";
               rotate = "normal";
             };
           };
@@ -51,19 +52,20 @@ in {
         laptop-lx = {
           fingerprint = {
             "eDP-1" = "*";
-            "HDMI-1" = "*";
+            "DP-2" = "*";
           };
           config = {
-            HDMI-1 = {
+            DP-2 = {
               enable = true;
-              primary = true;
+              primary = false;
               mode = "1920x1080";
               position = "0x0";
               rotate = "normal";
+              rate = "144.0";
             };
             eDP-1 = {
               enable = true;
-              primary = false;
+              primary = true;
               mode = "1920x1200";
               position = "0x1080";
               rotate = "normal";
