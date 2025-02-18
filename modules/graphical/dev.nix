@@ -13,6 +13,8 @@ in {
     home.packages = [
       # Visual Studio Code
       pkgs.unstable.vscode
+      pkgs.jetbrains.idea-community
+      pkgs.unstable.code-cursor
     ];
   };
 }
