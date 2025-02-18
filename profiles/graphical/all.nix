@@ -9,8 +9,8 @@ in {
   #services.displayManager.defaultSession = "user-xsession";
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "altgr-intl";
+    xkb.layout = "us";
+    xkb.variant = "altgr-intl";
     displayManager = {
       #defaultSession = "user-xsession";
       session = [
@@ -112,7 +112,7 @@ in {
   services.dbus.packages = [ pkgs.dconf ];
   programs.dconf.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     fira-code
     font-awesome
     material-design-icons

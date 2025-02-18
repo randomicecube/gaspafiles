@@ -53,12 +53,12 @@ in {
       shellAliases = {
         clip = "xclip -sel clip";
         gac = "git add . && git commit -m";
-        ls = "exa";
+        ls = "eza";
       };
     };
 
-    # exa (modern ls replacement)
-    programs.exa.enable = true;
+    # eza (modern ls replacement)
+    programs.eza.enable = true;
     # bat (modern cat replacement)
     programs.bat.enable = true;
 

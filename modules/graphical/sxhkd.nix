@@ -50,8 +50,8 @@ in
     };
 
     # for access to pactl
-    home.packages = [
-      pkgs.pulseaudio
-    ];
+    # home.packages = [
+    #   pkgs.pulseaudio
+    # ];
   };
 }

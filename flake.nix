@@ -6,7 +6,7 @@
   description = "Nix configuration for PCs and servers.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-latest.url = "github:nixos/nixpkgs/master";
     riff = {
@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
@@ -22,8 +22,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:the-argus/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nvim-osc52 = {
       url = "github:ojroques/nvim-osc52/main";
@@ -134,7 +134,7 @@
       };
 
       agenixPackage = inputs.agenix.packages.${system}.default;
-      spicetifyPkgs = inputs.spicetify-nix.packages.${system}.default;
+      spicetifyPkgs = inputs.spicetify-nix.legacyPackages.${system};
 
       allModules = mkModules ./modules;
 
@@ -172,7 +172,7 @@
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  sharedModules = [ inputs.spicetify-nix.homeManagerModule ];
+                  sharedModules = [ inputs.spicetify-nix.homeManagerModules.default ];
                 };
               }
               inputs.agenix.nixosModules.age

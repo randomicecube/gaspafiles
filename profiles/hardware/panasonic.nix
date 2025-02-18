@@ -13,8 +13,9 @@
   # Will kernel panic on suspend without this
   boot.kernelParams = [ "i915.enable_dc=0" ];
 
+  services.libinput.enable = false;
   services.xserver = {
-    libinput.enable = false;
+    #libinput.enable = false;
 
     synaptics = {
       enable = true;

@@ -77,7 +77,7 @@ let cfg = config.modules.services.ssh; in
     (mkIf cfg.allowSSHAgentAuth {
       security = {
         sudo.enable = true;
-        pam.enableSSHAgentAuth = true;
+        pam.sshAgentAuth.enable = true;
         pam.services.sudo.sshAgentAuth = true;
       };
     })

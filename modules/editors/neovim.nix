@@ -167,7 +167,7 @@ let
     vim-commentary
 
     {
-      plugin = nvim-base16;
+      plugin = base16-nvim;
       config = ''
         " colorscheme settings
         set background=dark

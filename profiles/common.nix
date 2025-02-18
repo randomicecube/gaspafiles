@@ -41,7 +41,7 @@ in {
     fzf
     ripgrep
     procps
-    nixfmt
+    nixfmt-classic
     gdu
     duf
     tree

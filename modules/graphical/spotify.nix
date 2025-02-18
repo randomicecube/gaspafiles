@@ -12,7 +12,7 @@ in {
   config.hm = mkIf cfg.enable {
     programs.spicetify = {
       enable = true;
-      theme = spicetifyPkgs.themes.Comfy;
+      theme = spicetifyPkgs.themes.comfy;
 
       enabledExtensions = with spicetifyPkgs.extensions; [
         fullAppDisplay
@@ -21,7 +21,7 @@ in {
         hidePodcasts
       ];
 
-      enabledCustomApps = with spicetifyPkgs.apps; [ lyrics-plus ];
+      enabledCustomApps = with spicetifyPkgs.apps; [ lyricsPlus ];
     };
   };
 }

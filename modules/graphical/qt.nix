@@ -16,7 +16,7 @@ in {
     modules.graphical.gtk.enable = true;
     hm.qt = {
       enable = true;
-      platformTheme = "gtk";
+      platformTheme.name = "gtk";
     };
   };
 }

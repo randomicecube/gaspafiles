@@ -21,7 +21,7 @@ in
             y = 8;
           };
         };
-        key_bindings = [
+        keyboard.bindings = [
           { key = "C"; mods = "Alt"; action = "Copy"; }
           { key = "V"; mods = "Alt"; action = "Paste"; }
         ];
