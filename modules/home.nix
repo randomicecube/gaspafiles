@@ -51,5 +51,7 @@ in {
     # the Home Manager release notes for a list of state version
     # changes in each release.
     hm.home.stateVersion = config.system.stateVersion;
+    programs.appimage.enable = true;
+    programs.appimage.binfmt = true;
   };
 }
