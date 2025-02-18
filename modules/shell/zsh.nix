@@ -62,6 +62,8 @@ in {
     # bat (modern cat replacement)
     programs.bat.enable = true;
 
+    programs.jq.enable = true;
+
     # starship (shell theme)
     programs.starship.package = pkgs.unstable.starship;
     programs.starship.enable = true;
